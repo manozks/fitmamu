@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { WHATSAPP_NUMBER, WHATSAPP_PREFILLED_TEXT, Icons } from '../constants.tsx';
 
 const SalesPage: React.FC = () => {
-  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILLED_TEXT)}`;
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_PREFILLED_TEXT)}`;
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const features = [
@@ -99,7 +99,7 @@ const SalesPage: React.FC = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-full bg-[#E84D94] text-white py-5 rounded-full text-xl font-bold hover:bg-[#D13B82] transition-all shadow-xl shadow-black/20"
+            className="block w-full bg-[#E84D94] text-white py-5 rounded-full text-xl font-bold hover:bg-[#D13B82] transition-all shadow-xl shadow-black/20 text-center"
           >
             Pay & Start Today via WhatsApp
           </a>

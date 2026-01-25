@@ -10,7 +10,7 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
-  const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILLED_TEXT)}`;
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_PREFILLED_TEXT)}`;
 
   const problems = [
     { title: "Heaviness", desc: "Feeling heavy after pregnancy", icon: <Icons.Heaviness /> },
