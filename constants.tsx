@@ -1,5 +1,5 @@
 import React from 'react';
-import { QuizQuestion } from './types.ts';
+import { QuizQuestion, Product } from './types.ts';
 
 export const WHATSAPP_NUMBER = "9709060826";
 export const WHATSAPP_PREFILLED_TEXT = "Hi FitMamu, I want to start my 6-week challenge!";
@@ -46,6 +46,74 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
       { id: 't2', text: '20-30 minutes', value: 'medium' },
       { id: 't3', text: '45+ minutes', value: 'high' }
     ]
+  }
+];
+
+export const PRODUCT_LIST: Product[] = [
+  {
+    id: 'p1',
+    name: 'Eco-Friendly Yoga Mat',
+    price: '$45.00',
+    images: [
+      './assets/products/yoga-mat-1.jpg',
+      './assets/products/yoga-mat-2.jpg',
+      './assets/products/yoga-mat-3.jpg'
+    ],
+    description: 'High-grip, non-slip mat made from sustainable natural rubber. Specifically designed for postpartum movement, providing extra cushioning for sensitive joints and stable support for pelvic floor exercises.'
+  },
+  {
+    id: 'p2',
+    name: 'Anti-Burst Yoga Ball',
+    price: '$29.00',
+    images: [
+      './assets/products/yoga-ball-1.jpg',
+      './assets/products/yoga-ball-2.jpg',
+      './assets/products/yoga-ball-3.jpg'
+    ],
+    description: 'Relieve back pain and improve posture with our professional-grade anti-burst yoga ball. Ideal for pelvic floor strengthening and active sitting during recovery.'
+  },
+  {
+    id: 'p3',
+    name: 'Toning Dumbbell Set',
+    price: '$35.00',
+    images: [
+      './assets/products/dumbbells-1.jpg',
+      './assets/products/dumbbells-2.jpg',
+      './assets/products/dumbbells-3.jpg'
+    ],
+    description: 'Soft-grip neoprene dumbbells. These weights are safe and effective for low-impact resistance training at home to boost metabolism.'
+  },
+  {
+    id: 'p4',
+    name: 'Smart BCM Machine',
+    price: '$89.00',
+    images: [
+      './assets/products/bcm-1.jpg',
+      './assets/products/bcm-2.jpg',
+      './assets/products/bcm-3.jpg'
+    ],
+    description: 'Advanced Blood Circulation Massager. Reduces leg bloating, improves metabolism, and relaxes tired muscles after long nights of motherhood.'
+  },
+  {
+    id: 'p5',
+    name: 'THERMAL MERIDIAN MASSAGER',
+    price: '$1100',
+    images: [
+      './assets/products/thermal-1.jpg'
+     
+    ],
+    description: 'TERAHERTZ RF THERMAL MERIDIAN MASSAGER(MODEL: TS-THZ01) is a multifunctional beauty device that combines terahertz technology, radio frequency (RF), and thermal therapy to provide comprehensive skincare and wellness benefits. This advanced device is designed to enhance skin health, promote relaxation, and improve overall well-being through its innovative features.'
+  },
+  {
+    id: 'p6',
+    name: 'Postpartum Support Band',
+    price: '$39.00',
+    images: [
+      './assets/products/support-band-1.jpg',
+      './assets/products/support-band-2.jpg',
+      './assets/products/support-band-3.jpg'
+    ],
+    description: 'Breathable, high-compression band designed for core recovery and Diastasis Recti support. Provides stability while your body heals.'
   }
 ];
 
@@ -104,6 +172,17 @@ export const Icons = {
   Community: () => (
     <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+    </svg>
+  ),
+  Location: () => (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  ),
+  Email: () => (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
   )
 };

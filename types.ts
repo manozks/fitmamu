@@ -2,7 +2,8 @@
 export enum Page {
   Home = 'home',
   Quiz = 'quiz',
-  Sales = 'sales'
+  Sales = 'sales',
+  Products = 'products'
 }
 
 export interface QuizOption {
@@ -22,4 +23,12 @@ export interface QuizQuestion {
 export interface QuizResult {
   dosha: 'Vata' | 'Pitta' | 'Kapha';
   focus: string[];
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  price: string;
+  images: string[];
+  description: string;
 }

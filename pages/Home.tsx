@@ -2,6 +2,7 @@
 import React from 'react';
 import Hero from '../components/Home/Hero.tsx';
 import BMICalculator from '../components/Home/BMICalculator.tsx';
+import ScrollReveal from '../components/ScrollReveal.tsx';
 import { Page } from '../types.ts';
 import { WHATSAPP_NUMBER, WHATSAPP_PREFILLED_TEXT, Icons } from '../constants.tsx';
 
@@ -23,56 +24,64 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
     { 
       title: "15-Min Workouts", 
       desc: "Effective, low-impact movements designed for busy moms.", 
-      img: "https://images.unsplash.com/photo-1590103512238-3354f57ed40a?auto=format&fit=crop&q=80&w=800" 
+      img: "./assets/home/benefit-workout.jpg" 
     },
     { 
       title: "60+ Healthy Recipes", 
       desc: "Delicious, family-friendly meals that nourish your body.", 
-      img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=400" 
+      img: "./assets/home/benefit-recipe.jpg" 
     },
     { 
       title: "Self-Care & Habits", 
       desc: "Daily rituals to reclaim your peace and mental clarity.", 
-      img: "https://images.unsplash.com/photo-1545208393-596371BA9a3e?auto=format&fit=crop&q=80&w=800" 
+      img: "./assets/home/benefit-habit.jpg" 
     }
   ];
 
-  const selfCareImg = "https://images.unsplash.com/photo-1591343395582-99bf4d678b4d?auto=format&fit=crop&q=80&w=800";
+  const selfCareImg = "./assets/home/benefit-selfcare.jpg";
+
+  // Helper for demo fallbacks
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>, fallback: string) => {
+    (e.target as HTMLImageElement).src = fallback;
+  };
 
   return (
     <div className="space-y-24 pb-24">
       <Hero onStartQuiz={() => setCurrentPage(Page.Quiz)} />
 
-      {/* BMI Calculator Section */}
-      <BMICalculator />
+      <ScrollReveal>
+        <BMICalculator />
+      </ScrollReveal>
 
       {/* Problem Section */}
       <section className="max-w-7xl mx-auto px-4 py-16">
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl font-serif text-[#3B3E81] mb-6">Sound Familiar?</h2>
           <p className="text-[#3B3E81]/70 text-lg max-w-2xl mx-auto">
             Motherhood is beautiful, but it takes a toll on your body and mind. 
             We're here to help you navigate the changes safely and sustainably.
           </p>
-        </div>
+        </ScrollReveal>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {problems.map((p, i) => (
-            <div key={i} className="p-8 bg-white rounded-3xl shadow-sm border border-[#E84D94]/10 hover:shadow-md transition-shadow group flex flex-col items-center text-center lg:items-start lg:text-left">
-              <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
-                {p.icon}
+            <ScrollReveal key={i} delay={i * 100}>
+              <div className="p-8 bg-white rounded-3xl shadow-sm border border-[#E84D94]/10 hover:shadow-md transition-shadow group flex flex-col items-center text-center lg:items-start lg:text-left h-full">
+                <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {p.icon}
+                </div>
+                <h3 className="font-bold text-xl mb-2 text-[#3B3E81]">{p.title}</h3>
+                <p className="text-[#3B3E81]/60 leading-relaxed">{p.desc}</p>
               </div>
-              <h3 className="font-bold text-xl mb-2 text-[#3B3E81]">{p.title}</h3>
-              <p className="text-[#3B3E81]/60 leading-relaxed">{p.desc}</p>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Benefits Section - Everything you need to succeed */}
       <section className="bg-[#E84D94]/5 py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-center mb-16">
-            <div className="lg:w-1/2">
+            <ScrollReveal className="lg:w-1/2">
               <h2 className="text-3xl lg:text-5xl font-serif text-[#3B3E81] mb-6">Everything you need to succeed</h2>
               <p className="text-[#3B3E81]/80 text-lg mb-8 leading-relaxed">
                 Our 6-week FitMamu program isn't just a workout plan—it's a complete toolkit designed for the biological and lifestyle needs of moms.
@@ -90,39 +99,54 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="lg:w-1/2 grid grid-cols-2 gap-4">
+            </ScrollReveal>
+            <ScrollReveal className="lg:w-1/2 grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="relative group overflow-hidden rounded-3xl shadow-lg">
-                  <img src={benefits[0].img} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" alt="Healthy Mom Workout" />
+                  <img 
+                    src={benefits[0].img} 
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
+                    alt="Healthy Mom Workout" 
+                     />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
                 <div className="relative group overflow-hidden rounded-3xl shadow-lg">
-                  <img src={benefits[1].img} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" alt="Food" />
+                  <img 
+                    src={benefits[1].img} 
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
+                    alt="Food"  />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
               </div>
               <div className="pt-8 space-y-4">
                 <div className="relative group overflow-hidden rounded-3xl shadow-lg">
-                  <img src={benefits[2].img} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" alt="Habits" />
+                  <img 
+                    src={benefits[2].img} 
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
+                    alt="Habits" 
+                  />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
                 <div className="relative group overflow-hidden rounded-3xl shadow-lg">
-                  <img src={selfCareImg} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" alt="Self-care" />
+                  <img 
+                    src={selfCareImg} 
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
+                    alt="Self-care" />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Inspirational Full-Width Image Section */}
-      <section className="relative h-[600px] overflow-hidden">
+      {/* Inspirational Section */}
+      <ScrollReveal className="relative h-[600px] overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600" 
+          src="./assets/home/inspiration-bg.jpg" 
           className="w-full h-full object-cover"
           alt="Healthy mom stretching"
+          onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600")}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#3B3E81]/80 to-transparent flex items-center">
           <div className="max-w-7xl mx-auto px-4 w-full">
@@ -138,13 +162,13 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
             </div>
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* How It Works */}
       <section className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-16">
+        <ScrollReveal className="text-center mb-16">
           <h2 className="text-3xl font-serif mb-4 text-[#3B3E81]">Your Journey in 3 Steps</h2>
-        </div>
+        </ScrollReveal>
         <div className="relative">
           <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-[#E84D94]/10 -z-10" />
           <div className="grid lg:grid-cols-3 gap-12">
@@ -153,13 +177,13 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
               { step: "02", title: "Get Your Plan", desc: "Receive a personalized nutrition and movement roadmap." },
               { step: "03", title: "Start the Challenge", desc: "Join our circle and transform with daily expert guidance." }
             ].map((s, i) => (
-              <div key={i} className="text-center space-y-4">
+              <ScrollReveal key={i} delay={i * 200} className="text-center space-y-4">
                 <div className="w-16 h-16 rounded-2xl bg-white border-2 border-[#E84D94] text-[#E84D94] flex items-center justify-center text-2xl font-bold mx-auto shadow-lg shadow-[#E84D94]/5">
                   {s.step}
                 </div>
                 <h3 className="font-bold text-xl text-[#3B3E81]">{s.title}</h3>
                 <p className="text-[#3B3E81]/60 leading-relaxed">{s.desc}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -167,7 +191,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
 
       {/* Final CTA */}
       <section className="max-w-7xl mx-auto px-4">
-        <div className="bg-[#3B3E81] rounded-[50px] p-12 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+        <ScrollReveal className="bg-[#3B3E81] rounded-[50px] p-12 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#E84D94] rounded-full blur-[100px] -mr-32 -mt-32 opacity-30" />
           <div className="relative z-10 space-y-8">
             <h2 className="text-4xl lg:text-6xl font-serif">Ready to feel like yourself again?</h2>
@@ -191,7 +215,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
               </a>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );
