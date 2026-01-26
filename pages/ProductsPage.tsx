@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+
+import React, { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import ScrollReveal from '../components/ScrollReveal.tsx';
 import ProductCard from '../components/Products/ProductCard.tsx';
 import ProductModal from '../components/Products/ProductModal.tsx';
-// Fixed: Using named import for VideoModal to match its export in components/VideoModal.tsx
 import { VideoModal } from '../components/VideoModal.tsx';
 import { PRODUCT_LIST } from '../constants.tsx';
 import { Product } from '../types.ts';
@@ -11,48 +11,91 @@ import { Product } from '../types.ts';
 const ProductsPage: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+
+  const categories = useMemo(() => {
+    const cats = ['All', ...new Set(PRODUCT_LIST.map(p => p.category))];
+    return cats;
+  }, []);
+
+  const filteredProducts = useMemo(() => {
+    if (activeCategory === 'All') return PRODUCT_LIST;
+    return PRODUCT_LIST.filter(p => p.category === activeCategory);
+  }, [activeCategory]);
 
   return (
     <div className="pb-32 bg-[#fdfafb]">
       {/* Hero Section */}
-      <section className="pt-20 pb-16 px-4">
+      <section className="pt-20 pb-8 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <h1 className="text-4xl lg:text-6xl font-serif text-[#3B3E81] mb-6">Essentials for Your <span className="text-[#E84D94]">Postpartum Journey</span></h1>
+            <h1 className="text-4xl lg:text-6xl font-serif text-[#3B3E81] mb-6">
+              Essentials for Your <span className="text-[#E84D94]">Postpartum Journey</span>
+            </h1>
             <p className="text-xl text-[#3B3E81]/70 max-w-2xl mx-auto leading-relaxed">
-              Curated fitness gear and wellness tools designed to help you recover, strengthen, and thrive in motherhood.
+              Curated fitness gear, wellness tools, and nutritional support designed to help you recover, strengthen, and thrive.
             </p>
           </ScrollReveal>
         </div>
       </section>
 
+      {/* Category Tabs */}
+      <section className="sticky top-[64px] z-50 bg-[#fdfafb]/80 backdrop-blur-md py-6 px-4 mb-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide justify-start md:justify-center">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`whitespace-nowrap px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 transform active:scale-95 ${
+                  activeCategory === cat
+                    ? 'bg-[#E84D94] text-white shadow-lg shadow-[#E84D94]/30 scale-105'
+                    : 'bg-white text-[#3B3E81]/60 border border-slate-100 hover:border-[#E84D94]/30 hover:text-[#E84D94]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Product Grid */}
-      <section className="max-w-7xl mx-auto px-4 py-12">
+      <section className="max-w-7xl mx-auto px-4 py-4 min-h-[400px]">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {PRODUCT_LIST.map((product, i) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              index={i} 
-              onOpenModal={(p) => setSelectedProduct(p)}
-              onOpenVideo={(url) => setActiveVideoUrl(url)}
-            />
+          {filteredProducts.map((product, i) => (
+            <div key={product.id} className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: `${i * 50}ms` }}>
+              <ProductCard 
+                product={product} 
+                index={i} 
+                onOpenModal={(p) => setSelectedProduct(p)}
+                onOpenVideo={(url) => setActiveVideoUrl(url)}
+              />
+            </div>
           ))}
         </div>
+        
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-xl text-[#3B3E81]/40 font-serif">No products found in this category.</p>
+          </div>
+        )}
       </section>
 
       {/* Trust Banner */}
       <section className="max-w-5xl mx-auto px-4 mt-16">
-        <ScrollReveal className="bg-[#3B3E81] rounded-[50px] p-12 text-center text-white relative overflow-hidden">
+        <ScrollReveal className="bg-[#3B3E81] rounded-[50px] p-12 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#E84D94] rounded-full blur-[100px] opacity-20" />
-          <h2 className="text-3xl font-serif mb-6 relative z-10">Quality You Can Trust</h2>
-          <p className="text-white/70 max-w-xl mx-auto relative z-10 leading-relaxed">
-            All our products are tested and approved by fitness experts specializing in postpartum health. Safe, durable, and effective gear for every FitMamu.
-          </p>
-          <div className="flex flex-wrap justify-center gap-8 mt-10 relative z-10 opacity-60">
-             <span className="text-xs uppercase tracking-[0.3em] font-bold">Safe Materials</span>
-             <span className="text-xs uppercase tracking-[0.3em] font-bold">Expert Tested</span>
-             <span className="text-xs uppercase tracking-[0.3em] font-bold">Fast Delivery</span>
+          <div className="relative z-10">
+            <h2 className="text-3xl font-serif mb-6">Quality You Can Trust</h2>
+            <p className="text-white/70 max-w-xl mx-auto leading-relaxed mb-10">
+              All our products are tested and approved by fitness experts specializing in postpartum health. Safe, durable, and effective gear for every FitMamu.
+            </p>
+            <div className="flex flex-wrap justify-center gap-8 opacity-60">
+              <span className="text-xs uppercase tracking-[0.3em] font-bold">Safe Materials</span>
+              <span className="text-xs uppercase tracking-[0.3em] font-bold">Expert Tested</span>
+              <span className="text-xs uppercase tracking-[0.3em] font-bold">Fast Delivery</span>
+            </div>
           </div>
         </ScrollReveal>
       </section>

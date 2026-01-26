@@ -31,5 +31,6 @@ export interface Product {
   price: string;
   images: string[];
   description: string;
+  category: 'Food Supplements' | 'Home care' | 'Wellness Equipment' | 'Sanitary Napkins';
   videoUrl?: string;
 }

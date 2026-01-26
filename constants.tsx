@@ -51,43 +51,13 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 ];
 
 export const PRODUCT_LIST: Product[] = [
+  // Wellness Equipment
+  
   {
     id: 'p1',
-    name: 'Eco-Friendly Yoga Mat',
-    price: 'NPR 1000',
-    images: [
-      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-1.jpg',
-      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-2.jpg',
-      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-3.jpg'
-    ],
-    description: 'High-grip, non-slip mat made from sustainable natural rubber. Specifically designed for postpartum movement, providing extra cushioning for sensitive joints and stable support for pelvic floor exercises.'
-  },
-  {
-    id: 'p2',
-    name: 'Anti-Burst Yoga Ball',
-    price: 'NPR 2200',
-    images: [
-      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-1.jpg',
-      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-2.jpg',
-      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-3.jpg'
-    ],
-    description: 'Relieve back pain and improve posture with our professional-grade anti-burst yoga ball. Ideal for pelvic floor strengthening and active sitting during recovery.'
-  },
-  {
-    id: 'p3',
-    name: 'Toning Dumbbell Set',
-    price: 'NPR 380/Kg',
-    images: [
-      'https://manozks.github.io/fitmamu/assets/products/dumbbells-1.jpg',
-      'https://manozks.github.io/fitmamu/assets/products/dumbbells-2.jpg',
-      'https://manozks.github.io/fitmamu/assets/products/dumbbells-3.jpg'
-    ],
-    description: 'Soft-grip neoprene dumbbells. These weights are safe and effective for low-impact resistance training at home to boost metabolism.'
-  },
-  {
-    id: 'p4',
     name: 'Smart BCM Machine',
     price: 'NPR 87,000',
+    category: 'Wellness Equipment',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/bcm-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/bcm-2.jpg',
@@ -97,26 +67,107 @@ export const PRODUCT_LIST: Product[] = [
     description: 'Advanced Blood Circulation Massager. Reduces leg bloating, improves metabolism, and relaxes tired muscles after long nights of motherhood.'
   },
   {
-    id: 'p5',
-    name: 'THERMAL MERIDIAN MASSAGER',
+    id: 'p2',
+    name: 'Thermal Meridian Massager',
     price: 'NPR 158,200',
+    category: 'Wellness Equipment',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/thermal-1.jpg'
     ],
     videoUrl: 'https://youtu.be/L1gmFkdhKnw?si=nQii-A-RxPZdL1h0',
     description: 'It helps improve blood circulation, relieve muscle tension, reduce pain, and promote relaxation by targeting key energy pathways used in traditional acupuncture and massage practices.'
   },
-
   {
-    id: 'p6',
+    id: 'p3',
     name: 'Multifunctional Head Care Apparatus',
-    price: 'NPR 23730',
+    price: 'NPR 23,730',
+    category: 'Wellness Equipment',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/head-care-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/head-care-2.jpg'
     ],
-     videoUrl: 'https://youtu.be/-UrPp8bFm48?si=jC59eF22F_CrpS54',
-    description: 'Multifunctional Head-care Apparatus is an integrated treating equipment which can balance blood pressure and deliver laser healthcare and vibrating massage.. '
+    videoUrl: 'https://youtu.be/-UrPp8bFm48?si=jC59eF22F_CrpS54',
+    description: 'Multifunctional Head-care Apparatus is an integrated treating equipment which can balance blood pressure and deliver laser healthcare and vibrating massage.'
+  },
+
+  // Food Supplements
+  {
+    id: 'p4',
+    name: 'TIENS Spirulina Capsules',
+    price: 'NPR 3,200',
+    category: 'Food Supplements',
+    images: ['https://manozks.github.io/fitmamu/assets/products/spirulina.jpg'],
+    description: 'Spirulina is a nutritional supplement with a wide range of activities. It has a high content of easily absorbed protein, vitamins, minerals and other substances necessary for the human body, which makes it a great food for the 21st century. It is thanks to this unique nutritional value that spirulina enriches the diet of astronauts on space expeditions.'
+  },
+  {
+    id: 'p5',
+    name: 'Chitosan Capsules',
+    price: 'NPR 2,800',
+    category: 'Food Supplements',
+    images: ['https://manozks.github.io/fitmamu/assets/products/chitosan.jpg'],
+    description: 'Chitosan together with cellulose are the most abundant polysacccharides (complex carbohydrate) on earth. It is made from chitin found in the shells of crustaceans, insects and in the cellular walls of some fungal species. As a natural compound, it is non-toxic and biodegradable, completely safe for the environment. This is why it is becoming widely applied not only in foods supplements, but also in human and veterinary medicine, cosmetology or biotechnology in the broad sense. Nutrition specialists tend to call chitosan the sixth – after proteins, fats, sugars, mineral compounds and vitamins, life-essential element.'
+  },
+
+  // Sanitary Napkins
+  {
+    id: 'p6',
+    name: 'Airiz Anion Sanitary Napkins (Day)',
+    price: 'NPR 550',
+    category: 'Sanitary Napkins',
+    images: ['https://images.unsplash.com/photo-1610473068502-092523297a7d?auto=format&fit=crop&q=80&w=800'],
+    description: 'Breathable, ultra-thin napkins with active oxygen and negative ion padding to prevent bacteria and ensure freshness.'
+  },
+  {
+    id: 'p7',
+    name: 'Airiz Anion Sanitary Napkins (Night)',
+    price: 'NPR 650',
+    category: 'Sanitary Napkins',
+    images: ['https://images.unsplash.com/photo-1598449356475-b9f71db7d847?auto=format&fit=crop&q=80&w=800'],
+    description: 'Extra long and highly absorbent napkins for worry-free sleep during postpartum recovery or heavy cycles.'
+  },
+
+  // Home Care
+  {
+    id: 'p8',
+    name: 'Eco-Friendly Yoga Mat',
+    price: 'NPR 1000',
+    category: 'Home care',
+    images: [
+      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-2.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-3.jpg'
+    ],
+    description: 'High-grip, non-slip mat made from sustainable natural rubber. Specifically designed for postpartum movement, providing extra cushioning for sensitive joints and stable support for pelvic floor exercises.'
+  },
+
+   {
+    id: 'p9',
+    name: 'Anti-Burst Yoga Ball',
+    price: 'NPR 2200',
+    category: 'Home care',
+    images: [
+      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-2.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-3.jpg'
+    ],
+    description: 'High-grip, non-slip mat made from sustainable natural rubber. Specifically designed for postpartum movement, providing extra cushioning for sensitive joints and stable support for pelvic floor exercises.'
+  },
+
+  {
+    id: 'p10',
+    name: 'Concentrated Dish Wash',
+    price: 'NPR 850',
+    category: 'Home care',
+    images: ['https://images.unsplash.com/photo-1603539823027-4c7402633005?auto=format&fit=crop&q=80&w=800'],
+    description: 'Gentle yet powerful plant-based formula. Safe for baby bottles and effective for all family cookware.'
+  },
+  {
+    id: 'p11',
+    name: 'Multipurpose Surface Cleaner',
+    price: 'NPR 1,200',
+    category: 'Home care',
+    images: ['https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=800'],
+    description: 'Toxic-free surface cleaner that leaves your home sparkling and safe for crawling babies.'
   }
 ];
 
