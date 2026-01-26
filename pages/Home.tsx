@@ -40,9 +40,11 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
 
   const selfCareImg = "/assets/home/benefit-selfcare.jpg";
 
-  // Helper for demo fallbacks
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>, fallback: string) => {
-    (e.target as HTMLImageElement).src = fallback;
+    const target = e.target as HTMLImageElement;
+    if (target.src !== fallback) {
+      target.src = fallback;
+    }
   };
 
   return (
@@ -107,14 +109,17 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     src={benefits[0].img} 
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
                     alt="Healthy Mom Workout" 
-                     />
+                    onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1590103512238-3354f57ed40a?auto=format&fit=crop&q=80&w=800")}
+                  />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
                 <div className="relative group overflow-hidden rounded-3xl shadow-lg">
                   <img 
                     src={benefits[1].img} 
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
-                    alt="Food"  />
+                    alt="Food" 
+                    onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=400")}
+                  />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
               </div>
@@ -124,6 +129,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     src={benefits[2].img} 
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
                     alt="Habits" 
+                    onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1545208393-596371BA9a3e?auto=format&fit=crop&q=80&w=800")}
                   />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
@@ -131,7 +137,9 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                   <img 
                     src={selfCareImg} 
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
-                    alt="Self-care" />
+                    alt="Self-care" 
+                    onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1591343395582-99bf4d678b4d?auto=format&fit=crop&q=80&w=800")}
+                  />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
               </div>
@@ -143,7 +151,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
       {/* Inspirational Section */}
       <ScrollReveal className="relative h-[600px] overflow-hidden">
         <img 
-          src="./assets/home/inspiration-bg.jpg" 
+          src="/assets/home/inspiration-bg.jpg" 
           className="w-full h-full object-cover"
           alt="Healthy mom stretching"
           onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600")}

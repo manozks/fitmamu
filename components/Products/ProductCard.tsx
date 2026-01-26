@@ -18,6 +18,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal }
     return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
   };
 
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.onerror = null; // Prevent looping
+    target.src = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800";
+  };
+
   const truncateLength = 100;
   const isLongDescription = product.description.length > truncateLength;
   const displayedDescription = isExpanded || !isLongDescription 
@@ -35,6 +41,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal }
             src={product.images[0]} 
             alt={product.name} 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            onError={handleImgError}
           />
           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-[#E84D94] shadow-sm">
             {product.price}

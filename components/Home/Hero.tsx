@@ -45,11 +45,11 @@ const Hero: React.FC<HeroProps> = ({ onStartQuiz }) => {
         <div className="relative animate-in fade-in slide-in-from-right duration-1000">
           <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl aspect-[4/5] max-w-md mx-auto border-8 border-white bg-white">
             <img 
-              src="./assets/home/hero-mom.jpg" 
+              src="/assets/home/hero-mom.jpg" 
               alt="Healthy Mom Exercising" 
               className="w-full h-full object-cover"
               onError={(e) => {
-                // Fallback for demo if local image doesn't exist yet
+                (e.target as HTMLImageElement).onerror = null; // Prevent infinite loop
                 (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800";
               }}
             />

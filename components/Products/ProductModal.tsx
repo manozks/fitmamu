@@ -24,6 +24,12 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
     return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
   };
 
+  const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.onerror = null;
+    target.src = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800";
+  };
+
   return (
     <div className="fixed inset-0 z-[9999] grid place-items-center p-4 sm:p-6 md:p-10 overflow-hidden">
       <div 
@@ -53,6 +59,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
               alt={product.name} 
               className="w-full h-full object-cover transition-opacity duration-300 ease-in-out"
               key={activeImageIndex}
+              onError={handleImgError}
             />
           </div>
 
@@ -69,7 +76,12 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
                         : 'border-transparent opacity-60 hover:opacity-100'
                       }`}
                    >
-                      <img src={img} alt={`${product.name} view ${idx + 1}`} className="w-full h-full object-cover" />
+                      <img 
+                        src={img} 
+                        alt={`${product.name} view ${idx + 1}`} 
+                        className="w-full h-full object-cover"
+                        onError={handleImgError}
+                      />
                       {activeImageIndex === idx && (
                         <div className="absolute inset-0 bg-[#E84D94]/5 pointer-events-none" />
                       )}
