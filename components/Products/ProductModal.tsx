@@ -27,7 +27,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
     target.onerror = null;
-    target.src = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800";
+    target.src = "";
   };
 
   return (
