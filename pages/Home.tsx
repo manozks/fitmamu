@@ -24,21 +24,21 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
     { 
       title: "15-Min Workouts", 
       desc: "Effective, low-impact movements designed for busy moms.", 
-      img: "./assets/home/benefit-workout.jpg" 
+      img: "/assets/home/benefit-workout.jpg" 
     },
     { 
       title: "60+ Healthy Recipes", 
       desc: "Delicious, family-friendly meals that nourish your body.", 
-      img: "./assets/home/benefit-recipe.jpg" 
+      img: "/assets/home/benefit-recipe.jpg" 
     },
     { 
       title: "Self-Care & Habits", 
       desc: "Daily rituals to reclaim your peace and mental clarity.", 
-      img: "./assets/home/benefit-habit.jpg" 
+      img: "/assets/home/benefit-habit.jpg" 
     }
   ];
 
-  const selfCareImg = "./assets/home/benefit-selfcare.jpg";
+  const selfCareImg = "/assets/home/benefit-selfcare.jpg";
 
   // Helper for demo fallbacks
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>, fallback: string) => {
