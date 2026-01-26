@@ -108,9 +108,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                   <img 
                     src={benefits[0].img} 
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
-                    alt="Healthy Mom Workout" 
-                    onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1590103512238-3354f57ed40a?auto=format&fit=crop&q=80&w=800")}
-                  />
+                    alt="Healthy Mom Workout" />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
                 <div className="relative group overflow-hidden rounded-3xl shadow-lg">
@@ -118,7 +116,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     src={benefits[1].img} 
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
                     alt="Food" 
-                    onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=400")}
+                   
                   />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
@@ -129,7 +127,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     src={benefits[2].img} 
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
                     alt="Habits" 
-                    onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1545208393-596371BA9a3e?auto=format&fit=crop&q=80&w=800")}
+                   
                   />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
@@ -138,7 +136,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     src={selfCareImg} 
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
                     alt="Self-care" 
-                    onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1591343395582-99bf4d678b4d?auto=format&fit=crop&q=80&w=800")}
+                   
                   />
                   <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
                 </div>
