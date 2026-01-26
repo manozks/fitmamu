@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
   ];
 
   return (
-    <footer className="bg-white pt-20 pb-12 mt-20">
+    <footer className="bg-white pt-20 pb-6 mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-16">
           
@@ -48,7 +48,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               <span className="font-serif text-2xl font-bold text-[#3B3E81]">FitMamu</span>
             </div>
             
-            <p className="text-[#3B3E81]/60 max-w-sm leading-relaxed text-sm md:text-base">
+            <p className="text-[#3B3E81]/80 max-w-sm leading-relaxed text-sm md:text-base">
               Empowering mothers to transform their health and regain confidence through sustainable movement, nutrition, and supportive community.
             </p>
 
@@ -59,7 +59,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                   href={social.link} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#3B3E81]/40 hover:text-[#E84D94] transition-colors duration-300 transform hover:-translate-y-1"
+                  className="text-[#3B3E81]/60 hover:text-[#E84D94] transition-colors duration-300 transform hover:-translate-y-1"
                 >
                   {social.icon}
                 </a>
@@ -75,7 +75,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                 <li key={i}>
                   <button 
                     onClick={() => setCurrentPage(link.page)}
-                    className="text-[#3B3E81]/50 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
+                    className="text-[#3B3E81]/80 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
                   >
                     {link.label}
                   </button>
@@ -91,7 +91,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                 <li key={i}>
                   <button 
                     onClick={() => setCurrentPage(link.page)}
-                    className="text-[#3B3E81]/50 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
+                    className="text-[#3B3E81]/80 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
                   >
                     {link.label}
                   </button>
@@ -106,7 +106,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             <ul className="space-y-5">
               <li className="flex items-start gap-3">
                 <span className="text-[#E84D94] mt-1 shrink-0"><Icons.Location /></span>
-                <span className="text-[#3B3E81]/50 text-sm font-medium leading-snug">
+                <span className="text-[#3B3E81]/80 text-sm font-medium leading-snug">
                   Labimall, Pulchowk<br />Lalitpur, Nepal
                 </span>
               </li>
@@ -114,7 +114,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                 <span className="text-[#E84D94] shrink-0"><Icons.Email /></span>
                 <a 
                   href="mailto:support@fitmamu.com" 
-                  className="text-[#3B3E81]/50 hover:text-[#E84D94] transition-colors text-sm font-medium"
+                  className="text-[#3B3E81]/80 hover:text-[#E84D94] transition-colors text-sm font-medium"
                 >
                   support@fitmamu.com
                 </a>
@@ -125,7 +125,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                   href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#3B3E81]/50 hover:text-[#E84D94] transition-colors text-sm font-medium"
+                  className="text-[#3B3E81]/80 hover:text-[#E84D94] transition-colors text-sm font-medium"
                 >
                   +977 {WHATSAPP_NUMBER}
                 </a>
@@ -136,7 +136,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row justify-center items-center">
-          <p className="text-[#3B3E81]/40 text-xs font-medium">
+          <p className="text-[#3B3E81]/70 text-xs font-medium">
             © {currentYear} FitMamu.  All rights reserved.
 Consult your physician before starting any exercise program.
           </p>

@@ -15,7 +15,7 @@ const ProductsPage: React.FC = () => {
       <section className="pt-20 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <h1 className="text-4xl lg:text-6xl font-serif text-[#3B3E81] mb-6">Essentials for Your <span className="text-[#E84D94]">Postpartum Journey</span></h1>
+            <h1 className="text-4xl lg:text-6xl font-serif text-[#3B3E81] mb-6">Essentials for Your <span className="text-[#E84D94]">Wellness Journey</span></h1>
             <p className="text-xl text-[#3B3E81]/70 max-w-2xl mx-auto leading-relaxed">
               Curated fitness gear and wellness tools designed to help you recover, strengthen, and thrive in motherhood.
             </p>

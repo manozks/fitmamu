@@ -54,7 +54,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'p1',
     name: 'Eco-Friendly Yoga Mat',
-    price: '$45.00',
+    price: 'NPR 1000',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/yoga-mat-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/yoga-mat-2.jpg',
@@ -65,7 +65,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'p2',
     name: 'Anti-Burst Yoga Ball',
-    price: '$29.00',
+    price: 'NPR 2200',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/yoga-ball-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/yoga-ball-2.jpg',
@@ -76,7 +76,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'p3',
     name: 'Toning Dumbbell Set',
-    price: '$35.00',
+    price: 'NPR 380/Kg',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/dumbbells-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/dumbbells-2.jpg',
@@ -87,7 +87,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'p4',
     name: 'Smart BCM Machine',
-    price: '$89.00',
+    price: 'NPR 87,000',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/bcm-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/bcm-2.jpg',
@@ -97,14 +97,23 @@ export const PRODUCT_LIST: Product[] = [
   },
   {
     id: 'p5',
-    name: 'Postpartum Support Band',
-    price: '$39.00',
+    name: 'THERMAL MERIDIAN MASSAGER',
+    price: 'NPR 158,200',
     images: [
-      'https://manozks.github.io/fitmamu/assets/products/support-band-1.jpg',
-      'https://manozks.github.io/fitmamu/assets/products/support-band-2.jpg',
-      'https://manozks.github.io/fitmamu/assets/products/support-band-3.jpg'
+      'https://manozks.github.io/fitmamu/assets/products/thermal-1.jpg'
     ],
-    description: 'Breathable, high-compression band designed for core recovery and Diastasis Recti support. Provides stability while your body heals.'
+    description: 'It helps improve blood circulation, relieve muscle tension, reduce pain, and promote relaxation by targeting key energy pathways used in traditional acupuncture and massage practices.'
+  },
+
+  {
+    id: 'p6',
+    name: 'Multifunctional Head Care Apparatus',
+    price: 'NPR 23730',
+    images: [
+      'https://manozks.github.io/fitmamu/assets/products/head-care-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/head-care-2.jpg'
+    ],
+    description: 'Multifunctional Head-care Apparatus is an integrated treating equipment which can balance blood pressure and deliver laser healthcare and vibrating massage, through intelligent mono-chip management system.. Provides stability while your body heals.'
   }
 ];
 

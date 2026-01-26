@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal }
 
   return (
     <ScrollReveal delay={index * 100}>
-      <div className="bg-white rounded-[40px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-[#E84D94]/5 group h-full flex flex-col">
+      <div className="bg-white rounded-[40px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-[#e2e2e2] group h-full flex flex-col">
         <div 
           className="relative overflow-hidden h-72 cursor-pointer"
           onClick={() => onOpenModal(product)}
