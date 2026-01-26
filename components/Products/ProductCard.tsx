@@ -1,16 +1,16 @@
-
 import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal.tsx';
-import { WHATSAPP_NUMBER } from '../../constants.tsx';
+import { WHATSAPP_NUMBER, Icons } from '../../constants.tsx';
 import { Product } from '../../types.ts';
 
 interface ProductCardProps {
   product: Product;
   index: number;
   onOpenModal: (product: Product) => void;
+  onOpenVideo: (url: string) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, onOpenVideo }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
   const getBuyLink = (productName: string) => {
@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal }
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
     target.onerror = null; // Prevent looping
-    target.src = "";
+    target.src = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800";
   };
 
   const truncateLength = 100;
@@ -46,6 +46,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal }
           <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-[#E84D94] shadow-sm">
             {product.price}
           </div>
+          
+          {/* Video Button Overlay (conditional) */}
+          {product.videoUrl && (
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                onOpenVideo(product.videoUrl!);
+              }}
+              className="absolute bottom-4 left-4 bg-white/90 backdrop-blur p-3 rounded-full text-[#E84D94] shadow-lg hover:scale-110 transition-transform z-10 flex items-center justify-center border border-[#E84D94]/10"
+              title="Watch Product Video"
+            >
+              <Icons.Play />
+            </button>
+          )}
+
           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
              <span className="bg-white text-[#E84D94] px-6 py-2 rounded-full font-bold shadow-lg scale-90 group-hover:scale-100 transition-transform">Quick View</span>
           </div>
@@ -82,12 +97,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal }
             >
               Order via WhatsApp
             </a>
-            <button 
-              onClick={() => onOpenModal(product)}
-              className="w-full py-2 text-[#3B3E81]/40 text-sm font-bold uppercase tracking-widest hover:text-[#E84D94] transition-colors"
-            >
-              Details
-            </button>
+            <div className="flex gap-2">
+              <button 
+                onClick={() => onOpenModal(product)}
+                className="flex-1 py-3 text-[#3B3E81]/40 text-sm font-bold uppercase tracking-widest hover:text-[#E84D94] transition-colors border border-slate-100 rounded-2xl hover:bg-slate-50"
+              >
+                Details
+              </button>
+              {product.videoUrl && (
+                <button 
+                  onClick={() => onOpenVideo(product.videoUrl!)}
+                  className="flex-1 py-3 text-[#E84D94] text-sm font-bold uppercase tracking-widest hover:bg-[#E84D94]/5 transition-colors border border-[#E84D94]/20 rounded-2xl flex items-center justify-center gap-2"
+                >
+                  <Icons.Play /> Video
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

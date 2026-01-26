@@ -31,4 +31,5 @@ export interface Product {
   price: string;
   images: string[];
   description: string;
+  videoUrl?: string;
 }

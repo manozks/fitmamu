@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { WHATSAPP_NUMBER, Icons } from '../../constants.tsx';
 import { Product } from '../../types.ts';
@@ -6,9 +5,10 @@ import { Product } from '../../types.ts';
 interface ProductModalProps {
   product: Product;
   onClose: () => void;
+  onOpenVideo: (url: string) => void;
 }
 
-const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
+const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVideo }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
     target.onerror = null;
-    target.src = "";
+    target.src = "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800";
   };
 
   return (
@@ -53,7 +53,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
         {/* Left Column: Image & Gallery */}
         <div className="md:w-1/2 flex flex-col bg-[#f8f9fa] border-r border-slate-100 min-h-0 overflow-hidden">
           {/* Main Image View - Constrained height on mobile */}
-          <div className="flex-1 min-h-[300px] md:min-h-0 relative overflow-hidden bg-white flex items-center justify-center">
+          <div className="flex-1 min-h-[300px] md:min-h-0 relative overflow-hidden bg-white flex items-center justify-center group/main">
             <img 
               src={product.images[activeImageIndex]} 
               alt={product.name} 
@@ -61,10 +61,20 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
               key={activeImageIndex}
               onError={handleImgError}
             />
+            {product.videoUrl && (
+              <button 
+                onClick={() => onOpenVideo(product.videoUrl!)}
+                className="absolute inset-0 bg-black/10 opacity-0 group-hover/main:opacity-100 transition-opacity flex items-center justify-center group/play"
+              >
+                <div className="w-20 h-20 bg-[#E84D94] rounded-full flex items-center justify-center text-white shadow-2xl scale-90 group-hover/play:scale-100 transition-transform">
+                   <Icons.Play />
+                </div>
+              </button>
+            )}
           </div>
 
-          {/* Gallery Thumbnails - Added padding for scaling */}
-          <div className="p-6 md:p-8 bg-white border-t border-slate-100  flex-shrink-0">
+          {/* Gallery Thumbnails */}
+          <div className="p-6 md:p-8 bg-white border-t border-slate-100 flex-shrink-0">
              <div className="flex gap-4 overflow-x py-2 scrollbar-hide">
                 {product.images.map((img, idx) => (
                    <button 
@@ -101,12 +111,12 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
           </div>
         </div>
         
-        {/* Right Column: Details */}
-        <div className="md:w-1/2 p-6 md:p-12 overflow-y bg-white  flex flex-col h-full min-h-[0]">
+        {/* Right Column: Details - With Vertical Scroll */}
+        <div className="md:w-1/2 p-6 md:p-12 overflow-y bg-white flex flex-col h-full min-h-0">
           <div className="mb-6">
             <span className="text-[#E84D94] font-bold text-[10px] uppercase tracking-[0.2em] block mb-2">Product Detail</span>
             <h2 className="text-2xl md:text-3xl font-serif text-[#3B3E81] mb-2 leading-tight">{product.name}</h2>
-            <p className="text-2xl md:text-3xl font-bold text-[#E84D94]">{product.price}</p>
+            <p className="text-2xl md:text-3xl font-bold text-[#E84D94] mt-2">{product.price}</p>
           </div>
           
           <div className="mb-8">
@@ -127,7 +137,16 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
              </div>
           </div>
 
-          <div className="mt-auto pt-6 border-t border-slate-100">
+          <div className="mt-auto pt-6 border-t border-slate-100 space-y-4">
+            {product.videoUrl && (
+              <button 
+                onClick={() => onOpenVideo(product.videoUrl!)}
+                className="flex items-center justify-center gap-3 bg-white text-[#E84D94] border-2 border-[#E84D94] w-full py-4 rounded-full font-bold hover:bg-[#E84D94]/5 transition-all shadow-sm"
+              >
+                <Icons.Play /> Watch Product Video
+              </button>
+            )}
+            
             <a 
               href={getBuyLink(product.name)}
               target="_blank"
