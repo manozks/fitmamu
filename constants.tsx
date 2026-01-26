@@ -113,7 +113,7 @@ export const PRODUCT_LIST: Product[] = [
       'https://manozks.github.io/fitmamu/assets/products/head-care-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/head-care-2.jpg'
     ],
-    description: 'Multifunctional Head-care Apparatus is an integrated treating equipment which can balance blood pressure and deliver laser healthcare and vibrating massage, through intelligent mono-chip management system.. Provides stability while your body heals.'
+    description: 'Multifunctional Head-care Apparatus is an integrated treating equipment which can balance blood pressure and deliver laser healthcare and vibrating massage.. '
   }
 ];
 

@@ -64,7 +64,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
           </div>
 
           {/* Gallery Thumbnails - Added padding for scaling */}
-          <div className="p-6 md:p-8 bg-white border-t border-slate-100 flex-shrink-0">
+          <div className="p-6 md:p-8 bg-white border-t border-slate-100  flex-shrink-0">
              <div className="flex gap-4 overflow-x py-2 scrollbar-hide">
                 {product.images.map((img, idx) => (
                    <button 
@@ -102,10 +102,10 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
         </div>
         
         {/* Right Column: Details */}
-        <div className="md:w-1/2 p-6 md:p-12 overflow-y-auto bg-white flex flex-col h-full min-h-0">
+        <div className="md:w-1/2 p-6 md:p-12 overflow-y bg-white  flex flex-col h-full min-h-[0]">
           <div className="mb-6">
             <span className="text-[#E84D94] font-bold text-[10px] uppercase tracking-[0.2em] block mb-2">Product Detail</span>
-            <h2 className="text-2xl md:text-4xl font-serif text-[#3B3E81] mb-2 leading-tight">{product.name}</h2>
+            <h2 className="text-2xl md:text-3xl font-serif text-[#3B3E81] mb-2 leading-tight">{product.name}</h2>
             <p className="text-2xl md:text-3xl font-bold text-[#E84D94]">{product.price}</p>
           </div>
           
