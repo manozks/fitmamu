@@ -24,22 +24,21 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
     { 
       title: "15-Min Workouts", 
       desc: "Effective, low-impact movements designed for busy moms.", 
-      img: "/assets/home/benefit-workout.jpg" 
+      img: "https://manozks.github.io/fitmamu/assets/home/benefit-workout.jpg" 
     },
     { 
       title: "60+ Healthy Recipes", 
       desc: "Delicious, family-friendly meals that nourish your body.", 
-      img: "/assets/home/benefit-recipe.jpg" 
+      img: "https://manozks.github.io/fitmamu/assets/home/benefit-recipe.jpg" 
     },
     { 
       title: "Self-Care & Habits", 
       desc: "Daily rituals to reclaim your peace and mental clarity.", 
-      img: "/assets/home/benefit-habit.jpg" 
+      img: "https://manozks.github.io/fitmamu/assets/home/benefit-habit.jpg" 
     }
   ];
 
-  const selfCareImg = "/assets/home/benefit-selfcare.jpg";
-
+  const selfCareImg = "https://manozks.github.io/fitmamu/assets/home/benefit-selfcare.jpg";
   const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>, fallback: string) => {
     const target = e.target as HTMLImageElement;
     if (target.src !== fallback) {

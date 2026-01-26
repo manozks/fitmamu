@@ -56,9 +56,9 @@ export const PRODUCT_LIST: Product[] = [
     name: 'Eco-Friendly Yoga Mat',
     price: '$45.00',
     images: [
-      '/assets/products/yoga-mat-1.jpg',
-      '/assets/products/yoga-mat-2.jpg',
-      '/assets/products/yoga-mat-3.jpg'
+      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-2.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/yoga-mat-3.jpg'
     ],
     description: 'High-grip, non-slip mat made from sustainable natural rubber. Specifically designed for postpartum movement, providing extra cushioning for sensitive joints and stable support for pelvic floor exercises.'
   },
@@ -67,9 +67,9 @@ export const PRODUCT_LIST: Product[] = [
     name: 'Anti-Burst Yoga Ball',
     price: '$29.00',
     images: [
-      '/assets/products/yoga-ball-1.jpg',
-      '/assets/products/yoga-ball-2.jpg',
-      '/assets/products/yoga-ball-3.jpg'
+      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-2.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/yoga-ball-3.jpg'
     ],
     description: 'Relieve back pain and improve posture with our professional-grade anti-burst yoga ball. Ideal for pelvic floor strengthening and active sitting during recovery.'
   },
@@ -78,9 +78,9 @@ export const PRODUCT_LIST: Product[] = [
     name: 'Toning Dumbbell Set',
     price: '$35.00',
     images: [
-      '/assets/products/dumbbells-1.jpg',
-      '/assets/products/dumbbells-2.jpg',
-      '/assets/products/dumbbells-3.jpg'
+      'https://manozks.github.io/fitmamu/assets/products/dumbbells-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/dumbbells-2.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/dumbbells-3.jpg'
     ],
     description: 'Soft-grip neoprene dumbbells. These weights are safe and effective for low-impact resistance training at home to boost metabolism.'
   },
@@ -89,9 +89,9 @@ export const PRODUCT_LIST: Product[] = [
     name: 'Smart BCM Machine',
     price: '$89.00',
     images: [
-      '/assets/products/bcm-1.jpg',
-      '/assets/products/bcm-2.jpg',
-      '/assets/products/bcm-3.jpg'
+      'https://manozks.github.io/fitmamu/assets/products/bcm-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/bcm-2.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/bcm-3.jpg'
     ],
     description: 'Advanced Blood Circulation Massager. Reduces leg bloating, improves metabolism, and relaxes tired muscles after long nights of motherhood.'
   },
@@ -100,9 +100,9 @@ export const PRODUCT_LIST: Product[] = [
     name: 'Postpartum Support Band',
     price: '$39.00',
     images: [
-      '/assets/products/support-band-1.jpg',
-      '/assets/products/support-band-2.jpg',
-      '/assets/products/support-band-3.jpg'
+      'https://manozks.github.io/fitmamu/assets/products/support-band-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/support-band-2.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/support-band-3.jpg'
     ],
     description: 'Breathable, high-compression band designed for core recovery and Diastasis Recti support. Provides stability while your body heals.'
   }
