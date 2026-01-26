@@ -155,19 +155,15 @@ export const PRODUCT_LIST: Product[] = [
 
   {
     id: 'p10',
-    name: 'Concentrated Dish Wash',
-    price: 'NPR 850',
+    name: 'Toning Dumbbell Set',
+    price: 'NPR 380',
     category: 'Home care',
-    images: ['https://images.unsplash.com/photo-1603539823027-4c7402633005?auto=format&fit=crop&q=80&w=800'],
-    description: 'Gentle yet powerful plant-based formula. Safe for baby bottles and effective for all family cookware.'
-  },
-  {
-    id: 'p11',
-    name: 'Multipurpose Surface Cleaner',
-    price: 'NPR 1,200',
-    category: 'Home care',
-    images: ['https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=800'],
-    description: 'Toxic-free surface cleaner that leaves your home sparkling and safe for crawling babies.'
+    images: [
+      'https://manozks.github.io/fitmamu/assets/products/dumbbells-1.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/dumbbells-2.jpg',
+      'https://manozks.github.io/fitmamu/assets/products/dumbbells-3.jpg'
+    ],
+    description: 'Soft-grip neoprene dumbbells. These weights are safe and effective for low-impact resistance training at home to boost metabolism.'
   }
 ];
 
