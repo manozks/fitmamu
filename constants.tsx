@@ -131,7 +131,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p8',
     name: 'Eco-Friendly Yoga Mat',
     price: 'NPR 1000',
-    category: 'Home care',
+    category: 'Personal Care',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/yoga-mat-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/yoga-mat-2.jpg',
@@ -144,7 +144,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p9',
     name: 'Anti-Burst Yoga Ball',
     price: 'NPR 2200',
-    category: 'Home care',
+    category: 'Personal Care',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/yoga-ball-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/yoga-ball-2.jpg',
@@ -157,7 +157,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p10',
     name: 'Toning Dumbbell Set',
     price: 'NPR 380',
-    category: 'Home care',
+    category: 'Personal Care',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/dumbbells-1.jpg',
       'https://manozks.github.io/fitmamu/assets/products/dumbbells-2.jpg',
