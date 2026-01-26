@@ -93,6 +93,7 @@ export const PRODUCT_LIST: Product[] = [
       'https://manozks.github.io/fitmamu/assets/products/bcm-2.jpg',
       'https://manozks.github.io/fitmamu/assets/products/bcm-3.jpg'
     ],
+    videoUrl: 'https://youtu.be/44NHDgXzwOc?si=UI7mw4VVwO1m_o3E',
     description: 'Advanced Blood Circulation Massager. Reduces leg bloating, improves metabolism, and relaxes tired muscles after long nights of motherhood.'
   },
   {
@@ -102,6 +103,7 @@ export const PRODUCT_LIST: Product[] = [
     images: [
       'https://manozks.github.io/fitmamu/assets/products/thermal-1.jpg'
     ],
+    videoUrl: 'https://youtu.be/L1gmFkdhKnw?si=nQii-A-RxPZdL1h0',
     description: 'It helps improve blood circulation, relieve muscle tension, reduce pain, and promote relaxation by targeting key energy pathways used in traditional acupuncture and massage practices.'
   },
 

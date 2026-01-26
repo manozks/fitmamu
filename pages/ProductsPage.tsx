@@ -3,11 +3,14 @@ import { createPortal } from 'react-dom';
 import ScrollReveal from '../components/ScrollReveal.tsx';
 import ProductCard from '../components/Products/ProductCard.tsx';
 import ProductModal from '../components/Products/ProductModal.tsx';
+// Fixed: Using named import for VideoModal to match its export in components/VideoModal.tsx
+import { VideoModal } from '../components/VideoModal.tsx';
 import { PRODUCT_LIST } from '../constants.tsx';
 import { Product } from '../types.ts';
 
 const ProductsPage: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [activeVideoUrl, setActiveVideoUrl] = useState<string | null>(null);
 
   return (
     <div className="pb-32 bg-[#fdfafb]">
@@ -15,7 +18,7 @@ const ProductsPage: React.FC = () => {
       <section className="pt-20 pb-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <h1 className="text-4xl lg:text-6xl font-serif text-[#3B3E81] mb-6">Essentials for Your <span className="text-[#E84D94]">Wellness Journey</span></h1>
+            <h1 className="text-4xl lg:text-6xl font-serif text-[#3B3E81] mb-6">Essentials for Your <span className="text-[#E84D94]">Postpartum Journey</span></h1>
             <p className="text-xl text-[#3B3E81]/70 max-w-2xl mx-auto leading-relaxed">
               Curated fitness gear and wellness tools designed to help you recover, strengthen, and thrive in motherhood.
             </p>
@@ -32,6 +35,7 @@ const ProductsPage: React.FC = () => {
               product={product} 
               index={i} 
               onOpenModal={(p) => setSelectedProduct(p)}
+              onOpenVideo={(url) => setActiveVideoUrl(url)}
             />
           ))}
         </div>
@@ -58,6 +62,19 @@ const ProductsPage: React.FC = () => {
         <ProductModal 
           product={selectedProduct} 
           onClose={() => setSelectedProduct(null)} 
+          onOpenVideo={(url) => {
+            setSelectedProduct(null);
+            setActiveVideoUrl(url);
+          }}
+        />,
+        document.body
+      )}
+
+      {/* Video Modal rendered via Portal */}
+      {activeVideoUrl && createPortal(
+        <VideoModal 
+          videoUrl={activeVideoUrl} 
+          onClose={() => setActiveVideoUrl(null)} 
         />,
         document.body
       )}

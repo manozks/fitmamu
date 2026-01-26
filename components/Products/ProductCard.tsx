@@ -43,25 +43,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             onError={handleImgError}
           />
-          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-[#E84D94] shadow-sm">
+          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-[#E84D94] shadow-sm z-20">
             {product.price}
           </div>
           
-          {/* Video Button Overlay (conditional) */}
+          {/* Video Button Overlay (conditional) - High z-index to ensure it stays clickable */}
           {product.videoUrl && (
             <button 
               onClick={(e) => {
                 e.stopPropagation();
                 onOpenVideo(product.videoUrl!);
               }}
-              className="absolute bottom-4 left-4 bg-white/90 backdrop-blur p-3 rounded-full text-[#E84D94] shadow-lg hover:scale-110 transition-transform z-10 flex items-center justify-center border border-[#E84D94]/10"
+              className="absolute bottom-4 left-4 bg-white/90 backdrop-blur p-3 rounded-full text-[#E84D94] shadow-lg hover:scale-110 transition-transform z-30 flex items-center justify-center border border-[#E84D94]/10 cursor-pointer active:scale-95"
               title="Watch Product Video"
             >
               <Icons.Play />
             </button>
           )}
 
-          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+          {/* This overlay should not intercept clicks intended for buttons underneath */}
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none z-10">
              <span className="bg-white text-[#E84D94] px-6 py-2 rounded-full font-bold shadow-lg scale-90 group-hover:scale-100 transition-transform">Quick View</span>
           </div>
         </div>
@@ -81,7 +82,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
                     e.stopPropagation();
                     setIsExpanded(!isExpanded);
                   }}
-                  className="ml-2 text-[#E84D94] font-bold text-sm hover:underline focus:outline-none"
+                  className="ml-2 text-[#E84D94] font-bold text-sm hover:underline focus:outline-none cursor-pointer"
                 >
                   {isExpanded ? 'Read Less' : 'Read More'}
                 </button>
@@ -100,14 +101,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
             <div className="flex gap-2">
               <button 
                 onClick={() => onOpenModal(product)}
-                className="flex-1 py-3 text-[#3B3E81]/40 text-sm font-bold uppercase tracking-widest hover:text-[#E84D94] transition-colors border border-slate-100 rounded-2xl hover:bg-slate-50"
+                className="flex-1 py-3 text-[#3B3E81]/40 text-sm font-bold uppercase tracking-widest hover:text-[#E84D94] transition-colors border border-slate-100 rounded-2xl hover:bg-slate-50 cursor-pointer"
               >
                 Details
               </button>
               {product.videoUrl && (
                 <button 
-                  onClick={() => onOpenVideo(product.videoUrl!)}
-                  className="flex-1 py-3 text-[#E84D94] text-sm font-bold uppercase tracking-widest hover:bg-[#E84D94]/5 transition-colors border border-[#E84D94]/20 rounded-2xl flex items-center justify-center gap-2"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onOpenVideo(product.videoUrl!);
+                  }}
+                  className="flex-1 py-3 text-[#E84D94] text-sm font-bold uppercase tracking-widest hover:bg-[#E84D94]/5 transition-colors border border-[#E84D94]/20 rounded-2xl flex items-center justify-center gap-2 cursor-pointer active:scale-95"
                 >
                   <Icons.Play /> Video
                 </button>
