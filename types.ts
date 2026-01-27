@@ -29,6 +29,7 @@ export interface Product {
   id: string;
   name: string;
   price: string;
+  originalPrice?: string;
   images: string[];
   description: string;
   category: 'Food Supplements' | 'Personal Care' | 'Wellness Equipment' | 'Sanitary Napkins';

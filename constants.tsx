@@ -57,6 +57,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p1',
     name: 'Smart BCM Machine',
     price: 'NPR 87,000',
+    originalPrice: 'NPR 95,000',
     category: 'Wellness Equipment',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/bcm-1.jpg',
@@ -64,12 +65,13 @@ export const PRODUCT_LIST: Product[] = [
       'https://manozks.github.io/fitmamu/assets/products/bcm-3.jpg'
     ],
     videoUrl: 'https://youtu.be/44NHDgXzwOc?si=UI7mw4VVwO1m_o3E',
-    description: 'Advanced Blood Circulation Massager. Reduces leg bloating, improves metabolism, and relaxes tired muscles after long nights of motherhood.'
+    description: 'Tiens Blood Circulation Massager uses high frequency vibration to massage the reflex points beneath the feet and palms (reflexology), promoting blood circulation. The vibration frequency provided by this machine helps energise the veins, relax muscles, smooth any blood obstructions to speed up blood flow, harmonising internal cycles'
   },
   {
     id: 'p2',
     name: 'Thermal Meridian Massager',
     price: 'NPR 158,200',
+    originalPrice: 'NPR 175,000',
     category: 'Wellness Equipment',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/thermal-1.jpg'
@@ -81,6 +83,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p3',
     name: 'Multifunctional Head Care Apparatus',
     price: 'NPR 23,730',
+    originalPrice: 'NPR 26,000',
     category: 'Wellness Equipment',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/head-care-1.jpg',
@@ -93,6 +96,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p4',
     name: 'TIENS Acu-Life Electro Acupuncture Apparatus',
     price: 'NPR 63,280',
+    originalPrice: 'NPR 70,000',
     category: 'Wellness Equipment',
     images: [
         'https://manozks.github.io/fitmamu/assets/products/acu-Life-electro.jpg'
@@ -104,6 +108,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p5',
     name: 'CILVARIS - TIENS BEAUTY SECRET PORTABLE APPARATUS',
     price: 'NPR 44,296',
+    originalPrice: 'NPR 49,000',
     category: 'Wellness Equipment',
     images: [
            'https://manozks.github.io/fitmamu/assets/products/cilvaris.jpg'
@@ -117,6 +122,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p6',
     name: 'TIENS Spirulina Capsules',
     price: 'NPR 3,200',
+    originalPrice: 'NPR 3,500',
     category: 'Food Supplements',
     images: ['https://manozks.github.io/fitmamu/assets/products/spirulina.jpg'],
     description: 'Spirulina is a nutritional supplement with a wide range of activities. It has a high content of easily absorbed protein, vitamins, minerals and other substances necessary for the human body, which makes it a great food for the 21st century. It is thanks to this unique nutritional value that spirulina enriches the diet of astronauts on space expeditions.'
@@ -125,6 +131,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p7',
     name: 'Chitosan Capsules',
     price: 'NPR 2,800',
+    originalPrice: 'NPR 3,000',
     category: 'Food Supplements',
     images: ['https://manozks.github.io/fitmamu/assets/products/chitosan.jpg'],
     description: 'Chitosan together with cellulose are the most abundant polysacccharides (complex carbohydrate) on earth. It is made from chitin found in the shells of crustaceans, insects and in the cellular walls of some fungal species. As a natural compound, it is non-toxic and biodegradable, completely safe for the environment. This is why it is becoming widely applied not only in foods supplements, but also in human and veterinary medicine, cosmetology or biotechnology in the broad sense. Nutrition specialists tend to call chitosan the sixth – after proteins, fats, sugars, mineral compounds and vitamins, life-essential element.'
@@ -135,6 +142,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p8',
     name: 'Sanitary Napkin-10 pads - Day Use',
     price: 'NPR 680',
+    originalPrice: 'NPR 750',
     category: 'Sanitary Napkins',
     images: ['https://manozks.github.io/fitmamu/assets/products/napkin-day.jpg'],
     videoUrl: 'https://youtu.be/qeFtlFbdop4?si=9xGFPCvkqY9KS8D8',
@@ -144,6 +152,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p9',
     name: 'Sanitary Napkin-8 pads - Night Use',
     price: 'NPR 680',
+    originalPrice: 'NPR 750',
     category: 'Sanitary Napkins',
     images: ['https://manozks.github.io/fitmamu/assets/products/napkin-night.jpg'],
     description: 'The extra long, bodyline shape overnight sanitary napkin is designed to give you a good nights sleep. It is super absorbent, ultra thin for your comfort and prevents leakage. Some of the features of Oxygen & Negative Ion Sanitary 8 Layers of Protection. Anti-bacterial and anti-inflammable, Reduces fatigue and strengths Immunity, Eradicates odor and promotes metabolism. Dry, air permeable, anti-leakage. Dry, air permeable, anti-leakage.'
@@ -152,6 +161,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p10',
     name: 'Sanitary Napkin-30 pads - Panty Liner',
     price: 'NPR 886',
+    originalPrice: 'NPR 980',
     category: 'Sanitary Napkins',
     images: ['https://manozks.github.io/fitmamu/assets/products/napkin-panty-liner.jpg'],
     videoUrl: 'https://youtu.be/qeFtlFbdop4?si=6usKjF0W9-gDiHpA',
@@ -164,6 +174,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p11',
     name: 'Eco-Friendly Yoga Mat',
     price: 'NPR 1000',
+    originalPrice: 'NPR 1200',
     category: 'Personal Care',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/yoga-mat-1.jpg',
@@ -177,6 +188,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p12',
     name: 'Anti-Burst Yoga Ball',
     price: 'NPR 2200',
+    originalPrice: 'NPR 2600',
     category: 'Personal Care',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/yoga-ball-1.jpg',
@@ -190,6 +202,7 @@ export const PRODUCT_LIST: Product[] = [
     id: 'p13',
     name: 'Toning Dumbbell Set',
     price: 'NPR 380',
+    originalPrice: 'NPR 450',
     category: 'Personal Care',
     images: [
       'https://manozks.github.io/fitmamu/assets/products/dumbbells-1.jpg',

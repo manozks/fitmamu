@@ -118,8 +118,17 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
             <div className="mb-6">
               <span className="text-[#E84D94] font-bold text-[10px] uppercase tracking-[0.2em] block mb-2">Product Detail</span>
               <h2 className="text-2xl md:text-3xl font-serif text-[#3B3E81] mb-2 leading-tight">{product.name}</h2>
-              <p className="text-2xl md:text-3xl font-bold text-[#E84D94] mt-2">{product.price}</p>
+              <div className="flex items-baseline gap-3 mt-2">
+                <p className="text-2xl md:text-3xl font-bold text-[#E84D94]">{product.price}</p>
+                {product.originalPrice && (
+                  <p className="text-lg md:text-xl text-[#3B3E81]/30 line-through font-medium">
+                    {product.originalPrice}
+                  </p>
+                )}
+              </div>
             </div>
+
+            
             
             <div className="mb-8">
               <h4 className="font-bold text-[#3B3E81]/40 mb-3 uppercase tracking-widest text-[10px]">Description</h4>

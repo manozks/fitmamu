@@ -44,8 +44,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
             onError={handleImgError}
           />
-          <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-[#E84D94] shadow-sm z-20">
-            {product.price}
+          <div className="absolute top-4 right-4 flex flex-col items-end gap-1 z-20">
+            {product.originalPrice && (
+              <div className="bg-white/90 backdrop-blur px-3 py-1 rounded-full font-bold text-[#3B3E81]/40 text-[10px] line-through shadow-sm">
+                {product.originalPrice}
+              </div>
+            )}
+            <div className="bg-white/95 backdrop-blur px-4 py-2 rounded-full font-bold text-[#E84D94] shadow-md border border-[#E84D94]/10">
+              {product.price}
+            </div>
           </div>
           
           {/* Video Button Overlay */}

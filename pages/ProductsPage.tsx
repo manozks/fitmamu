@@ -42,7 +42,7 @@ const ProductsPage: React.FC = () => {
       {/* Category Tabs - Refined for Horizontal Scroll */}
       <section className="sticky top-[64px] z-50 bg-[#fdfafb]/90 backdrop-blur-md py-4 mb-8 border-b border-[#E84D94]/5">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex gap-3 overflow-x-auto pb-4 pt-2 flex-nowrap scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 justify-start md:justify-center">
+          <div className="flex gap-3 overflow-x-auto pb-4 pt-2 flex-nowrap  -mx-4 px-4 md:mx-0 md:px-0 justify-start md:justify-center">
             {categories.map((cat) => (
               <button
                 key={cat}
