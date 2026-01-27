@@ -50,7 +50,7 @@ const ProductsPage: React.FC = () => {
                 className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 transform active:scale-95 flex-shrink-0 ${
                   activeCategory === cat
                     ? 'bg-[#E84D94] text-white shadow-lg shadow-[#E84D94]/30 scale-105'
-                    : 'bg-white text-[#3B3E81]/60 border border-slate-100 hover:border-[#E84D94]/30 hover:text-[#E84D94]'
+                    : 'bg-white text-[#3B3E81]/60 border border-[#e2e2e2] hover:border-[#E84D94]/30 hover:text-[#E84D94]'
                 }`}
               >
                 {cat}

@@ -70,7 +70,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
         <div className="p-8 flex-grow flex flex-col">
           <div className="flex-grow">
             <h3 
-              className="text-2xl font-serif text-[#3B3E81] mb-3 cursor-pointer hover:text-[#E84D94] transition-colors leading-tight"
+              className="text-xl font-serif text-[#3B3E81] mb-3 cursor-pointer hover:text-[#E84D94] transition-colors leading-tight"
               onClick={() => onOpenModal(product)}
             >
               {product.name}
