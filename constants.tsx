@@ -112,7 +112,7 @@ export const PRODUCT_LIST: Product[] = [
   {
     id: 'p6',
     name: 'Sanitary Napkin-10 pads - Day Use',
-    price: 'NPR 550',
+    price: 'NPR 680',
     category: 'Sanitary Napkins',
     images: ['https://manozks.github.io/fitmamu/assets/products/napkin-day.jpg'],
     videoUrl: 'https://youtu.be/qeFtlFbdop4?si=9xGFPCvkqY9KS8D8',
@@ -120,16 +120,26 @@ export const PRODUCT_LIST: Product[] = [
   },
   {
     id: 'p7',
-    name: 'Sanitary Napkin-10 pads - Night Use',
-    price: 'NPR 650',
+    name: 'Sanitary Napkin-8 pads - Night Use',
+    price: 'NPR 680',
     category: 'Sanitary Napkins',
     images: ['https://manozks.github.io/fitmamu/assets/products/napkin-night.jpg'],
     description: 'The extra long, bodyline shape overnight sanitary napkin is designed to give you a good nights sleep. It is super absorbent, ultra thin for your comfort and prevents leakage. Some of the features of Oxygen & Negative Ion Sanitary 8 Layers of Protection. Anti-bacterial and anti-inflammable, Reduces fatigue and strengths Immunity, Eradicates odor and promotes metabolism. Dry, air permeable, anti-leakage. Dry, air permeable, anti-leakage.'
   },
+{
+    id: 'p8',
+    name: 'Sanitary Napkin-30 pads - Panty Liner',
+    price: 'NPR 886',
+    category: 'Sanitary Napkins',
+    images: ['https://manozks.github.io/fitmamu/assets/products/napkin-panty-liner.jpg'],
+    videoUrl: 'https://youtu.be/qeFtlFbdop4?si=6usKjF0W9-gDiHpA',
+    description: 'Moist environments provide the perfect breeding ground for bacteria and during the menstrual cycle, women are vulnerable to inflammation or infection without proper care. According to doctors in obstetrics and gynaecology, some women suffer from gynaecologic diseases due to the improper use of sanitary products. Indeed the World Health Organisation claims that 63% of gynecologic diseases are caused by using poor quality sanitary products as women are vulnerable to infection during this delicate period and weakened immunity can lead to more serious health threats.'
+  },
+
 
   // Home Care
   {
-    id: 'p8',
+    id: 'p9',
     name: 'Eco-Friendly Yoga Mat',
     price: 'NPR 1000',
     category: 'Personal Care',
@@ -142,7 +152,7 @@ export const PRODUCT_LIST: Product[] = [
   },
 
    {
-    id: 'p9',
+    id: 'p10',
     name: 'Anti-Burst Yoga Ball',
     price: 'NPR 2200',
     category: 'Personal Care',
@@ -155,7 +165,7 @@ export const PRODUCT_LIST: Product[] = [
   },
 
   {
-    id: 'p10',
+    id: 'p11',
     name: 'Toning Dumbbell Set',
     price: 'NPR 380',
     category: 'Personal Care',

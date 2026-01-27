@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import ScrollReveal from '../ScrollReveal.tsx';
 import { WHATSAPP_NUMBER, Icons } from '../../constants.tsx';
@@ -31,10 +32,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
     : `${product.description.substring(0, truncateLength)}...`;
 
   return (
-    <ScrollReveal delay={index * 100}>
+    <ScrollReveal delay={index * 100} className="h-full">
       <div className="bg-white rounded-[40px] overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-[#e2e2e2] group h-full flex flex-col">
         <div 
-          className="relative overflow-hidden h-72 cursor-pointer"
+          className="relative overflow-hidden h-72 cursor-pointer flex-shrink-0"
           onClick={() => onOpenModal(product)}
         >
           <img 
@@ -47,7 +48,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
             {product.price}
           </div>
           
-          {/* Video Button Overlay (conditional) - High z-index to ensure it stays clickable */}
+          {/* Video Button Overlay */}
           {product.videoUrl && (
             <button 
               onClick={(e) => {
@@ -61,15 +62,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
             </button>
           )}
 
-          {/* This overlay should not intercept clicks intended for buttons underneath */}
           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none z-10">
              <span className="bg-white text-[#E84D94] px-6 py-2 rounded-full font-bold shadow-lg scale-90 group-hover:scale-100 transition-transform">Quick View</span>
           </div>
         </div>
-        <div className="p-8 flex-grow flex flex-col justify-between">
-          <div>
+        
+        <div className="p-8 flex-grow flex flex-col">
+          <div className="flex-grow">
             <h3 
-              className="text-2xl font-serif text-[#3B3E81] mb-3 cursor-pointer hover:text-[#E84D94] transition-colors"
+              className="text-2xl font-serif text-[#3B3E81] mb-3 cursor-pointer hover:text-[#E84D94] transition-colors leading-tight"
               onClick={() => onOpenModal(product)}
             >
               {product.name}
@@ -89,7 +90,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
               )}
             </div>
           </div>
-          <div className="space-y-3">
+          
+          <div className="space-y-3 mt-auto">
             <a 
               href={getBuyLink(product.name)}
               target="_blank"

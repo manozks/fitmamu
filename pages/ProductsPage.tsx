@@ -39,15 +39,15 @@ const ProductsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Category Tabs */}
-      <section className="sticky top-[64px] z-50 bg-[#fdfafb]/80 backdrop-blur-md py-6 px-4 mb-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex gap-3 overflow-x-auto pb-2 justify-start md:justify-center">
+      {/* Category Tabs - Refined for Horizontal Scroll */}
+      <section className="sticky top-[64px] z-50 bg-[#fdfafb]/90 backdrop-blur-md py-4 mb-8 border-b border-[#E84D94]/5">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex gap-3 overflow-x-auto pb-4 pt-2 flex-nowrap scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 justify-start md:justify-center">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`whitespace-nowrap px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 transform active:scale-95 ${
+                className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 transform active:scale-95 flex-shrink-0 ${
                   activeCategory === cat
                     ? 'bg-[#E84D94] text-white shadow-lg shadow-[#E84D94]/30 scale-105'
                     : 'bg-white text-[#3B3E81]/60 border border-slate-100 hover:border-[#E84D94]/30 hover:text-[#E84D94]'
@@ -62,9 +62,13 @@ const ProductsPage: React.FC = () => {
 
       {/* Product Grid */}
       <section className="max-w-7xl mx-auto px-4 py-4 min-h-[400px]">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
           {filteredProducts.map((product, i) => (
-            <div key={product.id} className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: `${i * 50}ms` }}>
+            <div 
+              key={product.id} 
+              className="flex animate-in fade-in slide-in-from-bottom-4 duration-500" 
+              style={{ animationDelay: `${i * 50}ms` }}
+            >
               <ProductCard 
                 product={product} 
                 index={i} 
