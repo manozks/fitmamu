@@ -111,19 +111,20 @@ export const PRODUCT_LIST: Product[] = [
   // Sanitary Napkins
   {
     id: 'p6',
-    name: 'Airiz Anion Sanitary Napkins (Day)',
+    name: 'Sanitary Napkin-10 pads - Day Use',
     price: 'NPR 550',
     category: 'Sanitary Napkins',
-    images: ['https://images.unsplash.com/photo-1610473068502-092523297a7d?auto=format&fit=crop&q=80&w=800'],
-    description: 'Breathable, ultra-thin napkins with active oxygen and negative ion padding to prevent bacteria and ensure freshness.'
+    images: ['https://manozks.github.io/fitmamu/assets/products/napkin-day.jpg'],
+    videoUrl: 'https://youtu.be/qeFtlFbdop4?si=9xGFPCvkqY9KS8D8',
+    description: 'Absorbs liquid 3 times faster. The ultra-thin and super absorbent, liquid locking design keeps you accident-free, comfortable and clean. Some of the Oxygen & Negative Ion Sanitary Napkin is: 8 Layers of Protection. Anti-bacterial and anti-inflammable.  Reduces fatigue and strengths Immunity. Eradicates ordor and promotes metabolism.  Dry, air permeable, anti-leakage.'
   },
   {
     id: 'p7',
-    name: 'Airiz Anion Sanitary Napkins (Night)',
+    name: 'Sanitary Napkin-10 pads - Night Use',
     price: 'NPR 650',
     category: 'Sanitary Napkins',
-    images: ['https://images.unsplash.com/photo-1598449356475-b9f71db7d847?auto=format&fit=crop&q=80&w=800'],
-    description: 'Extra long and highly absorbent napkins for worry-free sleep during postpartum recovery or heavy cycles.'
+    images: ['https://manozks.github.io/fitmamu/assets/products/napkin-night.jpg'],
+    description: 'The extra long, bodyline shape overnight sanitary napkin is designed to give you a good nights sleep. It is super absorbent, ultra thin for your comfort and prevents leakage. Some of the features of Oxygen & Negative Ion Sanitary 8 Layers of Protection. Anti-bacterial and anti-inflammable, Reduces fatigue and strengths Immunity, Eradicates odor and promotes metabolism. Dry, air permeable, anti-leakage. Dry, air permeable, anti-leakage.'
   },
 
   // Home Care

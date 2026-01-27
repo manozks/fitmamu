@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Page } from '../types.ts';
 
@@ -35,31 +34,38 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ currentPage, setCurre
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       )
+    },
+    {
+      id: Page.Products,
+      label: 'Products',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+      )
     }
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[60] bg-white/90 backdrop-blur-lg border-t border-[#E84D94]/10 px-6 pb-6 pt-3 shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
-      <div className="flex justify-between items-center max-w-md mx-auto">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[60] bg-white/95 backdrop-blur-xl border-t border-[#E84D94]/10 px-2 pb-6 pt-3 shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+      <div className="flex justify-around items-center max-w-lg mx-auto">
         {tabs.map((tab) => {
           const isActive = currentPage === tab.id;
           return (
             <button
               key={tab.id}
               onClick={() => setCurrentPage(tab.id)}
-              className={`flex flex-col items-center gap-1 transition-all duration-300 ${
-                isActive ? 'text-[#E84D94] scale-110' : 'text-slate-400'
+              className={`flex flex-col items-center gap-1 transition-all duration-300 flex-1 ${
+                isActive ? 'text-[#E84D94]' : 'text-slate-400'
               }`}
             >
-              <div className={`p-2 rounded-2xl transition-colors ${isActive ? 'bg-[#E84D94]/10' : ''}`}>
+              <div className={`p-2 rounded-2xl transition-all duration-300 ${isActive ? 'bg-[#E84D94]/10 scale-110' : 'hover:bg-slate-50'}`}>
                 {tab.icon}
               </div>
-              <span className={`text-[10px] font-bold uppercase tracking-wider ${isActive ? 'opacity-100' : 'opacity-60'}`}>
+              <span className={`text-[8px] font-bold uppercase tracking-tight text-center transition-opacity ${isActive ? 'opacity-100' : 'opacity-50'}`}>
                 {tab.label}
               </span>
-              {isActive && (
-                <div className="w-1 h-1 bg-[#E84D94] rounded-full mt-0.5 animate-pulse" />
-              )}
+              <div className={`w-1 h-1 bg-[#E84D94] rounded-full mt-0.5 transition-all duration-300 ${isActive ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} />
             </button>
           );
         })}

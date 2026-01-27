@@ -42,7 +42,7 @@ const ProductsPage: React.FC = () => {
       {/* Category Tabs */}
       <section className="sticky top-[64px] z-50 bg-[#fdfafb]/80 backdrop-blur-md py-6 px-4 mb-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide justify-start md:justify-center">
+          <div className="flex gap-3 overflow-x-auto pb-2 justify-start md:justify-center">
             {categories.map((cat) => (
               <button
                 key={cat}
