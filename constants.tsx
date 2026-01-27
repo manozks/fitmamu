@@ -89,10 +89,32 @@ export const PRODUCT_LIST: Product[] = [
     videoUrl: 'https://youtu.be/-UrPp8bFm48?si=jC59eF22F_CrpS54',
     description: 'Multifunctional Head-care Apparatus is an integrated treating equipment which can balance blood pressure and deliver laser healthcare and vibrating massage.'
   },
+  {
+    id: 'p4',
+    name: 'TIENS Acu-Life Electro Acupuncture Apparatus',
+    price: 'NPR 63,280',
+    category: 'Wellness Equipment',
+    images: [
+        'https://manozks.github.io/fitmamu/assets/products/acu-Life-electro.jpg'
+    ],
+    videoUrl: 'https://youtu.be/aYH75WFkv3A?si=Aaeu_ZFNwB0eaoYA',
+    description: 'According to the Chinese Traditional Medicine (CTM) theory, “Block causes pain, no block no pain”. A pain on the body always indicates a blocked channel or a shortage of blood and Qi. Tiens Acu-Life Electro Acupuncture Apparatus uses pain-free method to clear the body channels to improve blood circulation, relieve pain, heal chronic ailments and prevent diseases.'
+  },
+  {
+    id: 'p5',
+    name: 'CILVARIS - TIENS BEAUTY SECRET PORTABLE APPARATUS',
+    price: 'NPR 44,296',
+    category: 'Wellness Equipment',
+    images: [
+           'https://manozks.github.io/fitmamu/assets/products/cilvaris.jpg'
+    ],
+    videoUrl: 'https://youtu.be/3bdZ_z5Oj0Q?si=khXXjvCOqg1Tz-Oi',
+    description: 'Tiens Cilvaris La Beauty Secrete Portable Apparatus - Face Massage Equipment | TQ-D27 TIENS Cilvaris Handheld Face Massager | Anti-Aging Skin Tightening Device | LED Therapy & Vibration Massage for Glowing Skin Deep Skin Rejuvenation & Glow Enhancer Therapy Face Massager | Anti-Age, Wrinkle Remover & Skin Firming Machine'
+  },
 
   // Food Supplements
   {
-    id: 'p4',
+    id: 'p6',
     name: 'TIENS Spirulina Capsules',
     price: 'NPR 3,200',
     category: 'Food Supplements',
@@ -100,7 +122,7 @@ export const PRODUCT_LIST: Product[] = [
     description: 'Spirulina is a nutritional supplement with a wide range of activities. It has a high content of easily absorbed protein, vitamins, minerals and other substances necessary for the human body, which makes it a great food for the 21st century. It is thanks to this unique nutritional value that spirulina enriches the diet of astronauts on space expeditions.'
   },
   {
-    id: 'p5',
+    id: 'p7',
     name: 'Chitosan Capsules',
     price: 'NPR 2,800',
     category: 'Food Supplements',
@@ -110,7 +132,7 @@ export const PRODUCT_LIST: Product[] = [
 
   // Sanitary Napkins
   {
-    id: 'p6',
+    id: 'p8',
     name: 'Sanitary Napkin-10 pads - Day Use',
     price: 'NPR 680',
     category: 'Sanitary Napkins',
@@ -119,7 +141,7 @@ export const PRODUCT_LIST: Product[] = [
     description: 'Absorbs liquid 3 times faster. The ultra-thin and super absorbent, liquid locking design keeps you accident-free, comfortable and clean. Some of the Oxygen & Negative Ion Sanitary Napkin is: 8 Layers of Protection. Anti-bacterial and anti-inflammable.  Reduces fatigue and strengths Immunity. Eradicates ordor and promotes metabolism.  Dry, air permeable, anti-leakage.'
   },
   {
-    id: 'p7',
+    id: 'p9',
     name: 'Sanitary Napkin-8 pads - Night Use',
     price: 'NPR 680',
     category: 'Sanitary Napkins',
@@ -127,7 +149,7 @@ export const PRODUCT_LIST: Product[] = [
     description: 'The extra long, bodyline shape overnight sanitary napkin is designed to give you a good nights sleep. It is super absorbent, ultra thin for your comfort and prevents leakage. Some of the features of Oxygen & Negative Ion Sanitary 8 Layers of Protection. Anti-bacterial and anti-inflammable, Reduces fatigue and strengths Immunity, Eradicates odor and promotes metabolism. Dry, air permeable, anti-leakage. Dry, air permeable, anti-leakage.'
   },
 {
-    id: 'p8',
+    id: 'p10',
     name: 'Sanitary Napkin-30 pads - Panty Liner',
     price: 'NPR 886',
     category: 'Sanitary Napkins',
@@ -139,7 +161,7 @@ export const PRODUCT_LIST: Product[] = [
 
   // Home Care
   {
-    id: 'p9',
+    id: 'p11',
     name: 'Eco-Friendly Yoga Mat',
     price: 'NPR 1000',
     category: 'Personal Care',
@@ -152,7 +174,7 @@ export const PRODUCT_LIST: Product[] = [
   },
 
    {
-    id: 'p10',
+    id: 'p12',
     name: 'Anti-Burst Yoga Ball',
     price: 'NPR 2200',
     category: 'Personal Care',
@@ -165,7 +187,7 @@ export const PRODUCT_LIST: Product[] = [
   },
 
   {
-    id: 'p11',
+    id: 'p13',
     name: 'Toning Dumbbell Set',
     price: 'NPR 380',
     category: 'Personal Care',
