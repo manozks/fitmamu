@@ -48,11 +48,7 @@ const Hero: React.FC<HeroProps> = ({ onStartQuiz }) => {
               src="/assets/home/hero-mom.jpg" 
               alt="Healthy Mom Exercising" 
               className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).onerror = null; // Prevent infinite loop
-                (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=800";
-              }}
-            />
+                          />
             <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur p-4 rounded-2xl shadow-lg border border-[#E84D94]/10">
                <p className="text-[#3B3E81] font-bold text-center italic">"Finally, a workout that fits my life!"</p>
                <p className="text-sm text-[#3B3E81]/60 text-center">- Silkey, Mom of 2</p>
