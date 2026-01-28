@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({ onStartQuiz }) => {
         <div className="relative animate-in fade-in slide-in-from-right duration-1000">
           <div className="relative z-10 rounded-[40px] overflow-hidden shadow-2xl aspect-[4/5] max-w-md mx-auto border-8 border-white bg-white">
             <img 
-              src="/assets/home/hero-mom.jpg" 
+              src="https://manozks.github.io/fitmamu/assetshome/hero-mom.jpg" 
               alt="Healthy Mom Exercising" 
               className="w-full h-full object-cover"
                           />
