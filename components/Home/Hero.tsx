@@ -55,7 +55,7 @@ const Hero: React.FC<HeroProps> = ({ onStartQuiz }) => {
             />
             <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur p-4 rounded-2xl shadow-lg border border-[#E84D94]/10">
                <p className="text-[#3B3E81] font-bold text-center italic">"Finally, a workout that fits my life!"</p>
-               <p className="text-sm text-[#3B3E81]/60 text-center">- Sarah, Mom of 2</p>
+               <p className="text-sm text-[#3B3E81]/60 text-center">- Silkey, Mom of 2</p>
             </div>
           </div>
           {/* Shapes */}

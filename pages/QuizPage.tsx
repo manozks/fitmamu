@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { Page } from '../types.ts';
-import { QUIZ_QUESTIONS, WHATSAPP_NUMBER } from '../constants.tsx';
+import { Page, QuizStep } from '../types.ts';
+import { QUIZ_STEPS, WHATSAPP_NUMBER } from '../constants.tsx';
 
 interface QuizPageProps {
   setCurrentPage: (page: Page) => void;
@@ -9,79 +9,174 @@ interface QuizPageProps {
 
 const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, { text: string, value: string }>>({});
+  const [answers, setAnswers] = useState<Record<string, any>>({});
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [analysisText, setAnalysisText] = useState('Initializing analysis...');
   const [isFinished, setIsFinished] = useState(false);
 
-  const progress = ((currentStep + 1) / QUIZ_QUESTIONS.length) * 100;
-  const currentQuestion = QUIZ_QUESTIONS[currentStep];
+  const currentStepData = QUIZ_STEPS[currentStep];
 
-  const getWhatsAppLink = (finalAnswers: Record<string, { text: string, value: string }>) => {
-    let message = "Hi FitMamu, I just completed the quiz!\n\n";
-    message += "*My Profile Summary:*\n";
-    
-    QUIZ_QUESTIONS.forEach((q) => {
-      const answer = finalAnswers[q.id];
-      if (answer) {
-        message += `• ${q.text}: *${answer.text}*\n`;
+  const handleOptionSelect = (option: any) => {
+    const isMulti = currentStepData.multiSelect;
+    let newValue;
+
+    if (isMulti) {
+      const currentValues = answers[currentStepData.id] || [];
+      if (currentValues.some((v: any) => v.value === option.value)) {
+        newValue = currentValues.filter((v: any) => v.value !== option.value);
+      } else {
+        newValue = [...currentValues, { text: option.text, value: option.value }];
       }
-    });
-    
-    message += "\nI'm ready to start my 6-week challenge!";
-    
-    // Using api.whatsapp.com/send is more compatible than wa.me in many embedded environments
-    return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+    } else {
+      newValue = { text: option.text, value: option.value };
+    }
+
+    setAnswers(prev => ({ ...prev, [currentStepData.id]: newValue }));
+
+    if (!isMulti) {
+      goToNext();
+    }
   };
 
-  const handleOptionSelect = (optionText: string, optionValue: string) => {
-    const updatedAnswers = { 
-      ...answers, 
-      [currentQuestion.id]: { text: optionText, value: optionValue } 
-    };
-    setAnswers(updatedAnswers);
-    
-    if (currentStep < QUIZ_QUESTIONS.length - 1) {
+  const goToNext = () => {
+    if (currentStep < QUIZ_STEPS.length - 1) {
       setTimeout(() => {
         setCurrentStep(prev => prev + 1);
       }, 300);
     } else {
-      setIsFinished(true);
+      startAnalysis();
     }
   };
 
-  if (isFinished) {
-    const finalLink = getWhatsAppLink(answers);
+  const startAnalysis = () => {
+    setIsAnalyzing(true);
+    const stages = [
+      "Analyzing body composition...",
+      "Identifying hormone profile...",
+      "Optimizing workout splits...",
+      "Finalizing Nepali-style nutrition blueprint...",
+      "Preparing your mentor roadmap..."
+    ];
+
+    stages.forEach((stage, i) => {
+      setTimeout(() => {
+        setAnalysisText(stage);
+        if (i === stages.length - 1) {
+          setTimeout(() => {
+            setIsAnalyzing(false);
+            setIsFinished(true);
+          }, 1000);
+        }
+      }, i * 800);
+    });
+  };
+
+  const getWhatsAppLink = () => {
+    let message = "Hi Silkey Sah, I just completed my FitMamu assessment!\n\n";
+    message += "*My Journey Details:*\n";
+    
+    QUIZ_STEPS.forEach((step) => {
+      if (step.type === 'question') {
+        const answer = answers[step.id];
+        if (answer) {
+          if (Array.isArray(answer)) {
+            message += `• ${step.text}: *${answer.map(a => a.text).join(', ')}*\n`;
+          } else {
+            message += `• ${step.text}: *${answer.text}*\n`;
+          }
+        }
+      }
+    });
+    
+    message += "\nI am ready for my Nepali-style personalized plan. Please guide me!";
+    return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+  };
+
+  // Helper to render the shared quiz navigation header
+  const renderQuizHeader = () => (
+    <div className="flex items-center justify-between mb-8 px-2 w-full max-w-2xl mx-auto pt-6">
+      <button 
+        onClick={() => {
+          if (isFinished) setIsFinished(false);
+          else if (currentStep > 0) setCurrentStep(prev => prev - 1);
+          else setCurrentPage(Page.Home);
+        }}
+        className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-[#3B3E81] hover:text-[#E84D94] transition-colors"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <div className="text-center flex-1 mx-4">
+         <div className="flex gap-1 justify-center">
+            {QUIZ_STEPS.map((_, i) => (
+              <div 
+                key={i} 
+                className={`h-1 rounded-full transition-all duration-300 ${isFinished || i <= currentStep ? 'w-4 bg-[#E84D94]' : 'w-1 bg-slate-200'}`} 
+              />
+            ))}
+         </div>
+      </div>
+      <div className="w-10" />
+    </div>
+  );
+
+  if (isAnalyzing) {
     return (
-      <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 bg-[#3B3E81]/60 backdrop-blur-md animate-in fade-in duration-300 overflow-y pt-20">
-        <div 
-          className="max-w-md w-full text-center space-y-8 bg-white p-10 lg:p-16 rounded-[40px] shadow-2xl border border-[#E84D94]/10 animate-in zoom-in-95 duration-500 my-10"
-        >
-          <div className="w-24 h-24 bg-[#E84D94]/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg className="w-12 h-12 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-            </svg>
+      <div className="min-h-[70vh] flex flex-col items-center justify-center p-6 bg-slate-50/30">
+        <div className="w-full max-w-sm text-center">
+          <div className="relative w-32 h-32 mx-auto mb-12">
+            <div className="absolute inset-0 border-8 border-slate-100 rounded-full" />
+            <div className="absolute inset-0 border-8 border-[#E84D94] border-t-transparent rounded-full animate-spin" />
+            <div className="absolute inset-0 flex items-center justify-center font-serif text-[#3B3E81] font-bold text-xl">
+              FitMamu
+            </div>
           </div>
-          <div className="space-y-4">
-            <h1 className="text-4xl font-serif text-[#3B3E81]">Assessment Done!</h1>
-            <p className="text-xl text-[#3B3E81]/70 leading-relaxed">
-              Your personalized profile is ready. Click below to send your results to our team and start your journey.
-            </p>
+          <h2 className="text-2xl font-serif text-[#3B3E81] mb-4 animate-pulse">Personalizing your plan</h2>
+          <p className="text-[#3B3E81]/60 font-medium tracking-wide h-6">{analysisText}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (isFinished) {
+    return (
+      <div className="min-h-screen bg-slate-50/50 flex flex-col items-center p-4">
+        {renderQuizHeader()}
+        <div className="max-w-xl w-full bg-white rounded-[48px] shadow-2xl overflow-hidden border border-slate-100 animate-in zoom-in-95 duration-500">
+          <div className="bg-[#3B3E81] p-10 text-center text-white relative">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#E84D94] rounded-full blur-3xl opacity-20 -mr-16 -mt-16" />
+            <h1 className="text-3xl lg:text-4xl font-serif mb-2">Roadmap Ready!</h1>
+            <p className="text-white/60">Based on your Nepali lifestyle and goals.</p>
           </div>
-          
-          <div className="pt-4 space-y-4">
-            <a 
-              href={finalLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full bg-[#E84D94] text-white py-5 rounded-full text-xl font-bold hover:bg-[#D13B82] transition-all shadow-xl shadow-[#E84D94]/30 animate-pulse active:scale-95 text-center"
-            >
-              Send to WhatsApp
-            </a>
-            <button 
-              onClick={() => setCurrentPage(Page.Home)}
-              className="w-full text-[#3B3E81]/50 font-medium py-2 hover:text-[#3B3E81] transition-colors"
-            >
-              Back to Home
-            </button>
+          <div className="p-8 lg:p-12 space-y-8">
+            <div className="bg-emerald-50 border border-emerald-100 p-6 rounded-[32px] flex items-start gap-4">
+              <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center text-white shrink-0 mt-1">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="font-bold text-emerald-900 mb-1">Coach Assigned: Silkey Sah</h4>
+                <p className="text-sm text-emerald-800/70 leading-relaxed">
+                  Your profile has been matched with our <strong>Hormone Balancing Module</strong>. This is not a strict diet, but a lifestyle shift.
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <a 
+                href={getWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-[#E84D94] text-white py-5 rounded-full text-xl font-bold hover:bg-[#D13B82] transition-all shadow-xl shadow-[#E84D94]/20 text-center animate-bounce"
+              >
+                Get My Personal Plan
+              </a>
+              <p className="text-center mt-6 text-[10px] text-slate-300 font-bold uppercase tracking-widest">
+                Trusted by 500+ Women • Safe • Body-Friendly
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -89,75 +184,104 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
   }
 
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-50/50 flex flex-col items-center p-4">
+      {renderQuizHeader()}
+
       <div className="max-w-2xl w-full">
-        <div className="text-center mb-12 animate-in fade-in slide-in-from-top duration-700">
-          <h1 className="text-3xl lg:text-4xl font-serif text-[#3B3E81] mb-2">Let’s Understand You & Your Body</h1>
-          <p className="text-[#3B3E81]/60">Answer a few questions so we can personalize your 6-week program.</p>
-        </div>
+        <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          {currentStepData.type === 'question' ? (
+            <>
+              <div className="text-center mb-10 px-4">
+                <h1 className="text-3xl lg:text-4xl font-serif text-[#3B3E81] mb-3 leading-tight">{currentStepData.text}</h1>
+                {currentStepData.description && <p className="text-[#3B3E81]/50 text-lg">{currentStepData.description}</p>}
+              </div>
 
-        <div className="mb-12">
-          <div className="flex justify-between text-sm font-medium text-[#E84D94] mb-2">
-            <span>Progress</span>
-            <span>Step {currentStep + 1} of {QUIZ_QUESTIONS.length}</span>
-          </div>
-          <div className="w-full bg-[#E84D94]/10 h-3 rounded-full overflow-hidden">
-            <div 
-              className="bg-[#E84D94] h-full transition-all duration-500 ease-out"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-        </div>
+              <div className="grid gap-4">
+                {currentStepData.options?.map((option) => {
+                  const isSelected = currentStepData.multiSelect 
+                    ? (answers[currentStepData.id] || []).some((v: any) => v.value === option.value)
+                    : answers[currentStepData.id]?.value === option.value;
+                    
+                  return (
+                    <button
+                      key={option.id}
+                      onClick={() => handleOptionSelect(option)}
+                      className={`relative w-full text-left p-6 rounded-[32px] border-2 border-[#e2e2e2] transition-all flex items-center gap-6 group
+                        ${isSelected ? 'border-[#E84D94] bg-[#E84D94]/5 shadow-lg shadow-[#E84D94]/5' : 'border-white bg-white hover:border-[#E84D94]/20 hover:bg-slate-50 shadow-sm'}`}
+                    >
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-sm transition-transform duration-300 group-hover:scale-110
+                        ${isSelected ? 'bg-[#E84D94] text-white' : 'bg-slate-50 text-[#E84D94]'}`}>
+                        <div className="w-8 h-8 flex items-center justify-center">
+                          {option.icon}
+                        </div>
+                      </div>
+                      <div className="flex-grow">
+                        <p className={`font-bold text-lg ${isSelected ? 'text-[#E84D94]' : 'text-[#3B3E81]'}`}>{option.text}</p>
+                        {option.subtext && <p className="text-sm text-slate-400 font-medium">{option.subtext}</p>}
+                      </div>
+                      {currentStepData.multiSelect && (
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${isSelected ? 'bg-[#E84D94] border-[#E84D94]' : 'border-slate-200'}`}>
+                          {isSelected && <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>}
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
 
-        <div className="bg-white rounded-[40px] p-8 lg:p-12 shadow-2xl border border-[#E84D94]/10 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <h2 className="text-2xl lg:text-3xl font-bold text-[#3B3E81] mb-10 leading-tight">{currentQuestion.text}</h2>
-          
-          <div className="grid gap-4">
-            {currentQuestion.options.map((option) => (
-              <button
-                key={option.id}
-                onClick={() => handleOptionSelect(option.text, option.value)}
-                className={`w-full text-left p-6 lg:p-7 rounded-3xl border-2 transition-all flex items-center justify-between group
-                  ${answers[currentQuestion.id]?.value === option.value 
-                    ? 'border-[#E84D94] bg-[#E84D94]/5 text-[#E84D94]' 
-                    : 'border-slate-100 hover:border-[#E84D94]/30 hover:bg-[#E84D94]/5 text-slate-600'
-                  }`}
-              >
-                <span className={`font-semibold text-lg lg:text-xl ${answers[currentQuestion.id]?.value === option.value ? 'text-[#E84D94]' : 'text-[#3B3E81]'}`}>
-                  {option.text}
-                </span>
-                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all
-                  ${answers[currentQuestion.id]?.value === option.value 
-                    ? 'border-[#E84D94] bg-[#E84D94] text-white scale-110' 
-                    : 'border-slate-200 group-hover:border-[#E84D94]/30'
-                  }`}
-                >
-                  {answers[currentQuestion.id]?.value === option.value && (
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                    </svg>
-                  )}
+              {currentStepData.multiSelect && (
+                <div className="pt-8 pb-20">
+                  <button
+                    onClick={goToNext}
+                    disabled={!(answers[currentStepData.id]?.length > 0)}
+                    className={`w-full py-5 rounded-full font-bold text-lg transition-all shadow-xl ${(answers[currentStepData.id]?.length > 0) ? 'bg-[#3B3E81] text-white hover:bg-[#E84D94]' : 'bg-slate-200 text-slate-400 cursor-not-allowed'}`}
+                  >
+                    Continue Journey
+                  </button>
                 </div>
+              )}
+            </>
+          ) : (
+            <div className="text-center p-8 lg:p-12 bg-white rounded-[40px] shadow-xl border border-slate-100 flex flex-col items-center mb-20">
+              {currentStepData.image ? (
+                <div className="relative mb-8">
+                   <div className="absolute inset-0 bg-[#E84D94] rounded-full blur-2xl opacity-20 animate-pulse" />
+                   <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-[#E84D94]/20 p-1 relative z-10">
+                      <img 
+                        src={currentStepData.image} 
+                        alt="Silkey Sah" 
+                        className="w-full h-full rounded-full object-cover shadow-2xl"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = 'https://manozks.github.io/fitmamu/assets/silkey-profile.jpg'; // Better fallback
+                        }}
+                      />
+                   </div>
+                </div>
+              ) : (
+                <div className="w-20 h-20 bg-[#E84D94]/10 rounded-full flex items-center justify-center mb-8">
+                   <div className="w-10 h-10 text-[#E84D94]">
+                      <svg fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path d="M12 4.5l3.5 3.5m0 0l3.5-3.5m-3.5 3.5v9m-7-9l3.5 3.5m0 0l3.5-3.5m-3.5 3.5v9" /></svg>
+                   </div>
+                </div>
+              )}
+              
+              <h2 className="text-3xl lg:text-4xl font-serif text-[#3B3E81] mb-6 leading-tight">
+                {currentStepData.text}
+              </h2>
+              
+              <div className="text-[#3B3E81]/60 text-lg leading-relaxed mb-10 max-w-md">
+                {currentStepData.description}
+              </div>
+              
+              <button
+                onClick={goToNext}
+                className="w-full bg-[#3B3E81] text-white py-5 rounded-full font-bold text-lg hover:bg-[#E84D94] transition-all shadow-lg hover:-translate-y-1 active:scale-95"
+              >
+                Continue Assessment
               </button>
-            ))}
-          </div>
-
-          <div className="mt-12 flex justify-between items-center">
-            <button
-              disabled={currentStep === 0}
-              onClick={() => setCurrentStep(prev => prev - 1)}
-              className={`text-slate-400 font-bold flex items-center gap-2 hover:text-[#3B3E81] transition-all
-                ${currentStep === 0 ? 'opacity-0 invisible' : 'opacity-100'}`}
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-              </svg>
-              Previous
-            </button>
-            <div className="text-slate-300 font-bold text-sm tracking-widest uppercase">
-              FitMamu • {currentStep + 1}/{QUIZ_QUESTIONS.length}
             </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
