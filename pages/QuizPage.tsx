@@ -173,7 +173,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
               >
                 Get My Personal Plan
               </a>
-              <p className="text-center mt-6 text-[10px] text-slate-300 font-bold uppercase tracking-widest">
+              <p className="text-center mt-6 text-[10px] text-slate-600 font-bold uppercase tracking-widest">
                 Trusted by 500+ Women • Safe • Body-Friendly
               </p>
             </div>
