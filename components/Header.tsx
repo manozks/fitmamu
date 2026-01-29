@@ -40,12 +40,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
         {/* Logo */}
         <button 
           onClick={() => handleNavigation(Page.Home)}
-          className="flex items-center z-[120] relative group transition-transform active:scale-95"
+          className="flex items-center gap-2 z-[120] relative group transition-transform active:scale-95"
         >
           <img 
             src="https://manozks.github.io/fitmamu/assets/logo.png" 
             alt="Fitness Sarthi Logo" 
-            className="w-auto object-contain group-hover:rotate-3 transition-transform duration-300"
+            className="h-10 w-auto object-contain group-hover:rotate-3 transition-transform duration-300"
             onError={(e) => (e.currentTarget.style.display = 'none')}
           />
           
