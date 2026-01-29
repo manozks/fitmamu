@@ -29,10 +29,10 @@ const ProductsPage: React.FC = () => {
       <section className="pt-20 pb-8 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <h1 className="text-4xl lg:text-6xl font-serif text-[#3B3E81] mb-6">
+            <h1 className="text-4xl lg:text-6xl font-serif text-[#282038] mb-6">
               Essentials for Your <span className="text-[#E84D94]">Postpartum Journey</span>
             </h1>
-            <p className="text-xl text-[#3B3E81]/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-[#282038]/70 max-w-2xl mx-auto leading-relaxed">
               Curated fitness gear, wellness tools, and nutritional support designed to help you recover, strengthen, and thrive.
             </p>
           </ScrollReveal>
@@ -50,7 +50,7 @@ const ProductsPage: React.FC = () => {
                 className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 transform active:scale-95 flex-shrink-0 ${
                   activeCategory === cat
                     ? 'bg-[#E84D94] text-white shadow-lg shadow-[#E84D94]/30 scale-105'
-                    : 'bg-white text-[#3B3E81]/60 border border-[#e2e2e2] hover:border-[#E84D94]/30 hover:text-[#E84D94]'
+                    : 'bg-white text-[#282038]/60 border border-[#e2e2e2] hover:border-[#E84D94]/30 hover:text-[#E84D94]'
                 }`}
               >
                 {cat}
@@ -81,14 +81,14 @@ const ProductsPage: React.FC = () => {
         
         {filteredProducts.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-xl text-[#3B3E81]/40 font-serif">No products found in this category.</p>
+            <p className="text-xl text-[#282038]/40 font-serif">No products found in this category.</p>
           </div>
         )}
       </section>
 
       {/* Trust Banner */}
       <section className="max-w-5xl mx-auto px-4 mt-16">
-        <ScrollReveal className="bg-[#3B3E81] rounded-[50px] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+        <ScrollReveal className="bg-[#282038] rounded-[50px] p-12 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#E84D94] rounded-full blur-[100px] opacity-20" />
           <div className="relative z-10">
             <h2 className="text-3xl font-serif mb-6">Quality You Can Trust</h2>

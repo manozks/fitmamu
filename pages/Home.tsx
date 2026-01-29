@@ -57,8 +57,8 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
       {/* Problem Section */}
       <section className="max-w-7xl mx-auto px-4 py-16">
         <ScrollReveal className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-serif text-[#3B3E81] mb-6">Sound Familiar?</h2>
-          <p className="text-[#3B3E81]/70 text-lg max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-5xl font-serif text-[#282038] mb-6">Sound Familiar?</h2>
+          <p className="text-[#282038]/70 text-lg max-w-2xl mx-auto">
             Motherhood is beautiful, but it takes a toll on your body and mind. 
             We're here to help you navigate the changes safely and sustainably.
           </p>
@@ -70,8 +70,8 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                 <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
                   {p.icon}
                 </div>
-                <h3 className="font-bold text-xl mb-2 text-[#3B3E81]">{p.title}</h3>
-                <p className="text-[#3B3E81]/60 leading-relaxed">{p.desc}</p>
+                <h3 className="font-bold text-xl mb-2 text-[#282038]">{p.title}</h3>
+                <p className="text-[#282038]/60 leading-relaxed">{p.desc}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -83,8 +83,8 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-center mb-16">
             <ScrollReveal className="lg:w-1/2">
-              <h2 className="text-3xl lg:text-5xl font-serif text-[#3B3E81] mb-6">Everything you need to succeed</h2>
-              <p className="text-[#3B3E81]/80 text-lg mb-8 leading-relaxed">
+              <h2 className="text-3xl lg:text-5xl font-serif text-[#282038] mb-6">Everything you need to succeed</h2>
+              <p className="text-[#282038]/80 text-lg mb-8 leading-relaxed">
                 Our 6-week FitMamu program isn't just a workout plan—it's a complete toolkit designed for the biological and lifestyle needs of moms.
               </p>
               <ul className="space-y-4">
@@ -94,7 +94,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                   'No equipment needed', 
                   'Compassionate community support'
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 font-medium text-[#3B3E81]/80">
+                  <li key={idx} className="flex items-center gap-3 font-medium text-[#282038]/80">
                     <span className="w-6 h-6 rounded-full bg-[#E84D94] flex items-center justify-center text-white text-[10px]"><Icons.Check /></span>
                     {item}
                   </li>
@@ -108,7 +108,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     src={benefits[0].img} 
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
                     alt="Healthy Mom Workout" />
-                  <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
+                  <div className="absolute inset-0 bg-[#282038]/10 group-hover:bg-[#282038]/5 transition-colors" />
                 </div>
                 <div className="relative group overflow-hidden rounded-3xl shadow-lg">
                   <img 
@@ -117,7 +117,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     alt="Food" 
                    
                   />
-                  <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
+                  <div className="absolute inset-0 bg-[#282038]/10 group-hover:bg-[#282038]/5 transition-colors" />
                 </div>
               </div>
               <div className="pt-8 space-y-4">
@@ -128,7 +128,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     alt="Habits" 
                    
                   />
-                  <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
+                  <div className="absolute inset-0 bg-[#282038]/10 group-hover:bg-[#282038]/5 transition-colors" />
                 </div>
                 <div className="relative group overflow-hidden rounded-3xl shadow-lg">
                   <img 
@@ -137,7 +137,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                     alt="Self-care" 
                    
                   />
-                  <div className="absolute inset-0 bg-[#3B3E81]/10 group-hover:bg-[#3B3E81]/5 transition-colors" />
+                  <div className="absolute inset-0 bg-[#282038]/10 group-hover:bg-[#282038]/5 transition-colors" />
                 </div>
               </div>
             </ScrollReveal>
@@ -153,7 +153,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
           alt="Healthy mom stretching"
           onError={(e) => handleImgError(e, "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600")}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#3B3E81]/80 to-transparent flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#282038]/80 to-transparent flex items-center">
           <div className="max-w-7xl mx-auto px-4 w-full">
             <div className="max-w-lg text-white space-y-6">
               <h2 className="text-4xl lg:text-6xl font-serif leading-tight">Strength is more than just muscle.</h2>
@@ -172,7 +172,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
       {/* How It Works */}
       <section className="max-w-4xl mx-auto px-4">
         <ScrollReveal className="text-center mb-16">
-          <h2 className="text-3xl font-serif mb-4 text-[#3B3E81]">Your Journey in 3 Steps</h2>
+          <h2 className="text-3xl font-serif mb-4 text-[#282038]">Your Journey in 3 Steps</h2>
         </ScrollReveal>
         <div className="relative">
           <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-[#E84D94]/10 -z-10" />
@@ -186,8 +186,8 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
                 <div className="w-16 h-16 rounded-2xl bg-white border-2 border-[#E84D94] text-[#E84D94] flex items-center justify-center text-2xl font-bold mx-auto shadow-lg shadow-[#E84D94]/5">
                   {s.step}
                 </div>
-                <h3 className="font-bold text-xl text-[#3B3E81]">{s.title}</h3>
-                <p className="text-[#3B3E81]/60 leading-relaxed">{s.desc}</p>
+                <h3 className="font-bold text-xl text-[#282038]">{s.title}</h3>
+                <p className="text-[#282038]/60 leading-relaxed">{s.desc}</p>
               </ScrollReveal>
             ))}
           </div>
@@ -196,7 +196,7 @@ const Home: React.FC<HomeProps> = ({ setCurrentPage }) => {
 
       {/* Final CTA */}
       <section className="max-w-7xl mx-auto px-4">
-        <ScrollReveal className="bg-[#3B3E81] rounded-[50px] p-12 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+        <ScrollReveal className="bg-[#282038] rounded-[50px] p-12 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#E84D94] rounded-full blur-[100px] -mr-32 -mt-32 opacity-30" />
           <div className="relative z-10 space-y-8">
             <h2 className="text-4xl lg:text-6xl font-serif">Ready to feel like yourself again?</h2>

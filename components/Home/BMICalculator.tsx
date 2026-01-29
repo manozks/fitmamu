@@ -69,7 +69,7 @@ const BMICalculator: React.FC = () => {
             <div className="w-8 h-8 rounded-full bg-[#E84D94] text-white flex items-center justify-center text-sm">↑</div>
             <p className="font-bold uppercase tracking-wider text-xs">Recommended Gain</p>
           </div>
-          <p className="text-sm leading-relaxed text-[#3B3E81]/80">
+          <p className="text-sm leading-relaxed text-[#282038]/80">
             You are currently underweight. Aim to gain approximately <strong className="text-[#E84D94] text-lg">{diff} kg</strong> to reach a healthy threshold.
           </p>
         </div>
@@ -83,7 +83,7 @@ const BMICalculator: React.FC = () => {
           <div className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">↓</div>
           <p className="font-bold uppercase tracking-wider text-xs">Recommended Loss</p>
         </div>
-        <p className="text-sm leading-relaxed text-[#3B3E81]/80">
+        <p className="text-sm leading-relaxed text-[#282038]/80">
           To reach the healthy range, aim to lose approximately <strong className="text-orange-600 text-lg">{diff} kg</strong> to reach your target of <strong>{targetRange.max} kg</strong>.
         </p>
       </div>
@@ -95,7 +95,7 @@ const BMICalculator: React.FC = () => {
       <div className="bg-white rounded-[40px] shadow-2xl overflow-hidden border border-[#E84D94]/10">
         <div className="flex flex-col lg:flex-row min-h-[600px]">
           {/* Form Side */}
-          <div className="lg:w-1/2 p-8 lg:p-16 bg-[#3B3E81] text-white flex flex-col justify-center">
+          <div className="lg:w-1/2 p-8 lg:p-16 bg-[#282038] text-white flex flex-col justify-center">
             <h2 className="text-3xl lg:text-5xl font-serif mb-6">Health Check</h2>
             <p className="text-white/70 mb-10 leading-relaxed max-w-md">
               The BMI calculation is a standard scientific measure for everyone. Enter your details to understand your body's target range.
@@ -153,11 +153,11 @@ const BMICalculator: React.FC = () => {
             {bmi ? (
               <div className="animate-in fade-in zoom-in-95 duration-500 w-full max-w-md relative z-10">
                 <div className="mb-2">
-                  <span className="text-[#3B3E81]/40 font-bold uppercase tracking-[0.4em] text-[10px]">Assessment Result</span>
+                  <span className="text-[#282038]/40 font-bold uppercase tracking-[0.4em] text-[10px]">Assessment Result</span>
                 </div>
                 
                 <div className="relative inline-block mb-4">
-                  <div className="text-8xl lg:text-9xl font-serif text-[#3B3E81] tracking-tighter">{bmi}</div>
+                  <div className="text-8xl lg:text-9xl font-serif text-[#282038] tracking-tighter">{bmi}</div>
                   <div className="absolute -top-1 -right-6 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm text-[12px] font-black text-[#E84D94] animate-bounce">BMI</div>
                 </div>
                 
@@ -174,7 +174,7 @@ const BMICalculator: React.FC = () => {
                       <div className="h-full bg-red-400 w-[36.5%]" />
                   </div>
                   <div 
-                    className="absolute top-0 w-6 h-6 bg-white border-4 border-[#3B3E81] rounded-full shadow-xl transition-all duration-1000 ease-out z-20" 
+                    className="absolute top-0 w-6 h-6 bg-white border-4 border-[#282038] rounded-full shadow-xl transition-all duration-1000 ease-out z-20" 
                     style={{ left: `calc(${Math.min(Math.max((bmi / 40) * 100, 2), 98)}% - 12px)` }} 
                   />
                 </div>
@@ -188,7 +188,7 @@ const BMICalculator: React.FC = () => {
                     <div className="flex items-center justify-between p-5 bg-white rounded-3xl shadow-sm border border-slate-100">
                       <div>
                         <p className="text-[10px] uppercase font-bold text-slate-400 mb-1 tracking-widest">Target Weight Range</p>
-                        <p className="font-bold text-[#3B3E81] text-lg">{targetRange.min} - {targetRange.max} kg</p>
+                        <p className="font-bold text-[#282038] text-lg">{targetRange.min} - {targetRange.max} kg</p>
                       </div>
                       <div className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-300">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,7 +199,7 @@ const BMICalculator: React.FC = () => {
                   )}
                 </div>
 
-                <button className="mt-8 w-full bg-[#3B3E81] text-white py-4 rounded-2xl font-bold text-sm hover:bg-[#2A2C5C] transition-colors shadow-lg">
+                <button className="mt-8 w-full bg-[#282038] text-white py-4 rounded-2xl font-bold text-sm hover:bg-[#2A2C5C] transition-colors shadow-lg">
                   Join the 6-Week Challenge
                 </button>
               </div>

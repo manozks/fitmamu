@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { QuizStep, Product } from './types.ts';
+
 export const WHATSAPP_NUMBER = "9709060826";
-export const WHATSAPP_PREFILLED_TEXT = "Hi FitMamu, I want to start my 6-week challenge!";
+export const WHATSAPP_PREFILLED_TEXT = "Hi Fitness Sarthi, I want to start my transformation journey and learn more about your weight loss programs!";
+
 
 export const Icons = {
   Check: () => (

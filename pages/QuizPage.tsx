@@ -101,7 +101,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
           else if (currentStep > 0) setCurrentStep(prev => prev - 1);
           else setCurrentPage(Page.Home);
         }}
-        className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-[#3B3E81] hover:text-[#E84D94] transition-colors"
+        className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-[#282038] hover:text-[#E84D94] transition-colors"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
@@ -128,12 +128,12 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
           <div className="relative w-32 h-32 mx-auto mb-12">
             <div className="absolute inset-0 border-8 border-slate-100 rounded-full" />
             <div className="absolute inset-0 border-8 border-[#E84D94] border-t-transparent rounded-full animate-spin" />
-            <div className="absolute inset-0 flex items-center justify-center font-serif text-[#3B3E81] font-bold text-xl">
+            <div className="absolute inset-0 flex items-center justify-center font-serif text-[#282038] font-bold text-xl">
               FitMamu
             </div>
           </div>
-          <h2 className="text-2xl font-serif text-[#3B3E81] mb-4 animate-pulse">Personalizing your plan</h2>
-          <p className="text-[#3B3E81]/60 font-medium tracking-wide h-6">{analysisText}</p>
+          <h2 className="text-2xl font-serif text-[#282038] mb-4 animate-pulse">Personalizing your plan</h2>
+          <p className="text-[#282038]/60 font-medium tracking-wide h-6">{analysisText}</p>
         </div>
       </div>
     );
@@ -144,7 +144,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
       <div className="min-h-screen bg-slate-50/50 flex flex-col items-center p-4">
         {renderQuizHeader()}
         <div className="max-w-xl w-full bg-white rounded-[48px] shadow-2xl overflow-hidden border border-slate-100 animate-in zoom-in-95 duration-500">
-          <div className="bg-[#3B3E81] p-10 text-center text-white relative">
+          <div className="bg-[#282038] p-10 text-center text-white relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#E84D94] rounded-full blur-3xl opacity-20 -mr-16 -mt-16" />
             <h1 className="text-3xl lg:text-4xl font-serif mb-2">Roadmap Ready!</h1>
             <p className="text-white/60">Based on your Nepali lifestyle and goals.</p>
@@ -192,8 +192,8 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
           {currentStepData.type === 'question' ? (
             <>
               <div className="text-center mb-10 px-4">
-                <h1 className="text-3xl lg:text-4xl font-serif text-[#3B3E81] mb-3 leading-tight">{currentStepData.text}</h1>
-                {currentStepData.description && <p className="text-[#3B3E81]/50 text-lg">{currentStepData.description}</p>}
+                <h1 className="text-3xl lg:text-4xl font-serif text-[#282038] mb-3 leading-tight">{currentStepData.text}</h1>
+                {currentStepData.description && <p className="text-[#282038]/50 text-lg">{currentStepData.description}</p>}
               </div>
 
               <div className="grid gap-4">
@@ -216,7 +216,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
                         </div>
                       </div>
                       <div className="flex-grow">
-                        <p className={`font-bold text-lg ${isSelected ? 'text-[#E84D94]' : 'text-[#3B3E81]'}`}>{option.text}</p>
+                        <p className={`font-bold text-lg ${isSelected ? 'text-[#E84D94]' : 'text-[#282038]'}`}>{option.text}</p>
                         {option.subtext && <p className="text-sm text-slate-400 font-medium">{option.subtext}</p>}
                       </div>
                       {currentStepData.multiSelect && (
@@ -234,7 +234,7 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
                   <button
                     onClick={goToNext}
                     disabled={!(answers[currentStepData.id]?.length > 0)}
-                    className={`w-full py-5 rounded-full font-bold text-lg transition-all shadow-xl ${(answers[currentStepData.id]?.length > 0) ? 'bg-[#3B3E81] text-white hover:bg-[#E84D94]' : 'bg-slate-200 text-slate-400 cursor-not-allowed'}`}
+                    className={`w-full py-5 rounded-full font-bold text-lg transition-all shadow-xl ${(answers[currentStepData.id]?.length > 0) ? 'bg-[#282038] text-white hover:bg-[#E84D94]' : 'bg-slate-200 text-slate-400 cursor-not-allowed'}`}
                   >
                     Continue Journey
                   </button>
@@ -266,17 +266,17 @@ const QuizPage: React.FC<QuizPageProps> = ({ setCurrentPage }) => {
                 </div>
               )}
               
-              <h2 className="text-3xl lg:text-4xl font-serif text-[#3B3E81] mb-6 leading-tight">
+              <h2 className="text-3xl lg:text-4xl font-serif text-[#282038] mb-6 leading-tight">
                 {currentStepData.text}
               </h2>
               
-              <div className="text-[#3B3E81]/60 text-lg leading-relaxed mb-10 max-w-md">
+              <div className="text-[#282038]/60 text-lg leading-relaxed mb-10 max-w-md">
                 {currentStepData.description}
               </div>
               
               <button
                 onClick={goToNext}
-                className="w-full bg-[#3B3E81] text-white py-5 rounded-full font-bold text-lg hover:bg-[#E84D94] transition-all shadow-lg hover:-translate-y-1 active:scale-95"
+                className="w-full bg-[#282038] text-white py-5 rounded-full font-bold text-lg hover:bg-[#E84D94] transition-all shadow-lg hover:-translate-y-1 active:scale-95"
               >
                 Continue Assessment
               </button>

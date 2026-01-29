@@ -66,8 +66,8 @@ const SalesPage: React.FC = () => {
       <section className="bg-gradient-to-b from-[#E84D94]/10 to-white pt-20 pb-16">
         <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal className="text-left space-y-6">
-            <h1 className="text-4xl lg:text-6xl font-serif text-[#3B3E81] leading-tight">Your 6-Week <br /><span className="text-[#E84D94]">FitMamu</span> Program</h1>
-            <p className="text-xl text-[#3B3E81]/80 leading-relaxed max-w-xl">
+            <h1 className="text-4xl lg:text-6xl font-serif text-[#282038] leading-tight">Your 6-Week <br /><span className="text-[#E84D94]">FitMamu</span> Program</h1>
+            <p className="text-xl text-[#282038]/80 leading-relaxed max-w-xl">
               Everything you need to regain your strength, balance your hormones, and find your spark again—without hours in the gym.
             </p>
             <div className="inline-flex items-center gap-2 bg-[#E84D94]/10 text-[#E84D94] px-6 py-2 rounded-full font-bold">
@@ -85,8 +85,8 @@ const SalesPage: React.FC = () => {
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-[#E84D94]/10 rounded-full flex items-center justify-center text-[#E84D94] font-bold text-xl">4.9</div>
                   <div>
-                    <p className="font-bold text-[#3B3E81]">User Rating</p>
-                    <p className="text-sm text-[#3B3E81]/60">From 100+ FitMamus</p>
+                    <p className="font-bold text-[#282038]">User Rating</p>
+                    <p className="text-sm text-[#282038]/60">From 100+ FitMamus</p>
                   </div>
                 </div>
              </div>
@@ -97,7 +97,7 @@ const SalesPage: React.FC = () => {
       {/* Program Cards */}
       <section className="max-w-7xl mx-auto px-4 py-16">
         <ScrollReveal>
-          <h2 className="text-3xl font-serif text-center mb-12 text-[#3B3E81]">What's Inside the Program</h2>
+          <h2 className="text-3xl font-serif text-center mb-12 text-[#282038]">What's Inside the Program</h2>
         </ScrollReveal>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
@@ -106,8 +106,8 @@ const SalesPage: React.FC = () => {
                 <img src={f.img} className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" alt={f.title} />
                 <div className="p-8">
                   <div className="mb-4">{f.icon}</div>
-                  <h3 className="font-bold text-lg mb-2 text-[#3B3E81]">{f.title}</h3>
-                  <p className="text-[#3B3E81]/60 text-sm">{f.desc}</p>
+                  <h3 className="font-bold text-lg mb-2 text-[#282038]">{f.title}</h3>
+                  <p className="text-[#282038]/60 text-sm">{f.desc}</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -116,7 +116,7 @@ const SalesPage: React.FC = () => {
       </section>
 
       {/* Testimonials Carousel Section */}
-      <ScrollReveal className="bg-[#3B3E81] py-24 text-white relative overflow-hidden min-h-[550px] flex items-center">
+      <ScrollReveal className="bg-[#282038] py-24 text-white relative overflow-hidden min-h-[550px] flex items-center">
         <div className="absolute inset-0 opacity-10">
           <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover" alt="Happy Fit Mom" />
         </div>
@@ -171,7 +171,7 @@ const SalesPage: React.FC = () => {
 
       {/* Pricing Section */}
       <section className="max-w-xl mx-auto px-4 py-24">
-        <ScrollReveal className="bg-[#3B3E81] rounded-[40px] p-8 lg:p-12 text-white text-center relative overflow-hidden shadow-2xl border border-white/10">
+        <ScrollReveal className="bg-[#282038] rounded-[40px] p-8 lg:p-12 text-white text-center relative overflow-hidden shadow-2xl border border-white/10">
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#E84D94] rounded-full blur-[80px] opacity-40" />
           <h2 className="text-3xl font-serif mb-2">Total Transformation</h2>
           <div className="flex items-center justify-center gap-2 my-8">
@@ -198,7 +198,7 @@ const SalesPage: React.FC = () => {
       {/* FAQs */}
       <section className="max-w-3xl mx-auto px-4 py-12">
         <ScrollReveal>
-          <h2 className="text-3xl font-serif text-center mb-12 text-[#3B3E81]">Common Questions</h2>
+          <h2 className="text-3xl font-serif text-center mb-12 text-[#282038]">Common Questions</h2>
         </ScrollReveal>
         <div className="space-y-4">
           {faqs.map((f, i) => (
@@ -208,7 +208,7 @@ const SalesPage: React.FC = () => {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-6 text-left hover:bg-[#E84D94]/5 transition-colors"
                 >
-                  <span className="font-bold text-[#3B3E81] text-lg leading-tight">{f.q}</span>
+                  <span className="font-bold text-[#282038] text-lg leading-tight">{f.q}</span>
                   <span className={`text-[#E84D94] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}>
                     <Icons.ChevronDown />
                   </span>
@@ -216,7 +216,7 @@ const SalesPage: React.FC = () => {
                 <div 
                   className={`transition-all duration-300 ease-in-out ${openFaq === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
-                  <div className="p-6 pt-0 text-[#3B3E81]/70 leading-relaxed border-t border-[#E84D94]/5">
+                  <div className="p-6 pt-0 text-[#282038]/70 leading-relaxed border-t border-[#E84D94]/5">
                     {f.a}
                   </div>
                 </div>
@@ -230,8 +230,8 @@ const SalesPage: React.FC = () => {
       <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur border-t border-[#E84D94]/10 p-4 lg:p-6 z-40 animate-in slide-in-from-bottom-full">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           <div className="hidden sm:block">
-            <p className="font-bold text-[#3B3E81]">FitMamu 6-Week Challenge</p>
-            <p className="text-sm text-[#3B3E81]/60">Next batch starts Monday • 8 slots left</p>
+            <p className="font-bold text-[#282038]">FitMamu 6-Week Challenge</p>
+            <p className="text-sm text-[#282038]/60">Next batch starts Monday • 8 slots left</p>
           </div>
           <a 
             href={whatsappLink}

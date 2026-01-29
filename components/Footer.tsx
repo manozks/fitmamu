@@ -12,10 +12,10 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
   const footerLinks = {
     program: [
-      { label: '6-Week Challenge', page: Page.Sales },
+      { label: 'Transformation Challenge', page: Page.Sales },
       { label: 'Personalized Quiz', page: Page.Quiz },
-      { label: 'Workout Gear', page: Page.Products },
-      { label: 'Meal Plans', page: Page.Home },
+      { label: 'Wellness Gear', page: Page.Products },
+      { label: 'Custom Diet Plans', page: Page.Home },
     ],
     resources: [
       { label: 'Success Stories', page: Page.Home },
@@ -54,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               
             </div>
             
-            <p className="text-[#3B3E81] max-w-sm leading-relaxed text-sm md:text-base">
+            <p className="text-[#282038] max-w-sm leading-relaxed text-sm md:text-base">
               Empowering mothers to transform their health and regain confidence through sustainable movement, nutrition, and supportive community.
             </p>
 
@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                   href={social.link} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#3B3E81]/60 hover:text-[#E84D94] transition-colors duration-300 transform hover:-translate-y-1"
+                  className="text-[#282038]/60 hover:text-[#E84D94] transition-colors duration-300 transform hover:-translate-y-1"
                 >
                   {social.icon}
                 </a>
@@ -75,13 +75,13 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
           {/* Links Columns */}
           <div className="lg:col-span-1 space-y-6">
-            <h4 className="font-bold text-[#3B3E81] text-sm uppercase tracking-widest">Program</h4>
+            <h4 className="font-bold text-[#282038] text-sm uppercase tracking-widest">Program</h4>
             <ul className="space-y-4">
               {footerLinks.program.map((link, i) => (
                 <li key={i}>
                   <button 
                     onClick={() => setCurrentPage(link.page)}
-                    className="text-[#3B3E81]/80 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
+                    className="text-[#282038]/80 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
                   >
                     {link.label}
                   </button>
@@ -91,13 +91,13 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
           </div>
 
           <div className="lg:col-span-1 space-y-6">
-            <h4 className="font-bold text-[#3B3E81] text-sm uppercase tracking-widest">Resources</h4>
+            <h4 className="font-bold text-[#282038] text-sm uppercase tracking-widest">Resources</h4>
             <ul className="space-y-4">
               {footerLinks.resources.map((link, i) => (
                 <li key={i}>
                   <button 
                     onClick={() => setCurrentPage(link.page)}
-                    className="text-[#3B3E81]/80 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
+                    className="text-[#282038]/80 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
                   >
                     {link.label}
                   </button>
@@ -108,11 +108,11 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
           {/* Location Column */}
           <div className="lg:col-span-1 space-y-6">
-            <h4 className="font-bold text-[#3B3E81] text-sm uppercase tracking-widest">Location</h4>
+            <h4 className="font-bold text-[#282038] text-sm uppercase tracking-widest">Location</h4>
             <ul className="space-y-5">
               <li className="flex items-start gap-3">
                 <span className="text-[#E84D94] mt-1 shrink-0"><Icons.Location /></span>
-                <span className="text-[#3B3E81]/80 text-sm font-medium leading-snug">
+                <span className="text-[#282038]/80 text-sm font-medium leading-snug">
                   Labimall, Pulchowk<br />Lalitpur, Nepal
                 </span>
               </li>
@@ -120,7 +120,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                 <span className="text-[#E84D94] shrink-0"><Icons.Email /></span>
                 <a 
                   href="mailto:support@fitmamu.com" 
-                  className="text-[#3B3E81]/80 hover:text-[#E84D94] transition-colors text-sm font-medium"
+                  className="text-[#282038]/80 hover:text-[#E84D94] transition-colors text-sm font-medium"
                 >
                   support@fitmamu.com
                 </a>
@@ -131,7 +131,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                   href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#3B3E81]/80 hover:text-[#E84D94] transition-colors text-sm font-medium"
+                  className="text-[#282038]/80 hover:text-[#E84D94] transition-colors text-sm font-medium"
                 >
                   +977 {WHATSAPP_NUMBER}
                 </a>
@@ -142,8 +142,8 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row justify-center items-center">
-          <p className="text-[#3B3E81]/70 text-xs font-medium">
-            © {currentYear} FitMamu.  All rights reserved.
+          <p className="text-[#282038]/70 text-xs font-medium">
+            © {currentYear} Fitness Sarthi.  All rights reserved.
 Consult your physician before starting any exercise program.
           </p>
           

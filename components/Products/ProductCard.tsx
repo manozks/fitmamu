@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
           />
           <div className="absolute top-4 right-4 flex flex-col items-end gap-1 z-20">
             {product.originalPrice && (
-              <div className="bg-white/90 backdrop-blur px-3 py-1 rounded-full font-bold text-[#3B3E81]/40 text-[10px] line-through shadow-sm">
+              <div className="bg-white/90 backdrop-blur px-3 py-1 rounded-full font-bold text-[#282038]/40 text-[10px] line-through shadow-sm">
                 {product.originalPrice}
               </div>
             )}
@@ -77,12 +77,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
         <div className="p-8 flex-grow flex flex-col">
           <div className="flex-grow">
             <h3 
-              className="text-xl font-serif text-[#3B3E81] mb-3 cursor-pointer hover:text-[#E84D94] transition-colors leading-tight"
+              className="text-xl font-serif text-[#282038] mb-3 cursor-pointer hover:text-[#E84D94] transition-colors leading-tight"
               onClick={() => onOpenModal(product)}
             >
               {product.name}
             </h3>
-            <div className="text-[#3B3E81]/60 leading-relaxed mb-6">
+            <div className="text-[#282038]/60 leading-relaxed mb-6">
               {displayedDescription}
               {isLongDescription && (
                 <button 
@@ -110,7 +110,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index, onOpenModal, 
             <div className="flex gap-2">
               <button 
                 onClick={() => onOpenModal(product)}
-                className="flex-1 py-3 text-[#3B3E81]/40 text-sm font-bold uppercase tracking-widest hover:text-[#E84D94] transition-colors border border-slate-100 rounded-2xl hover:bg-slate-50 cursor-pointer"
+                className="flex-1 py-3 text-[#282038]/40 text-sm font-bold uppercase tracking-widest hover:text-[#E84D94] transition-colors border border-slate-100 rounded-2xl hover:bg-slate-50 cursor-pointer"
               >
                 Details
               </button>

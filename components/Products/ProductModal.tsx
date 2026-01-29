@@ -35,7 +35,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
     <div className="fixed inset-0 z-[9999] grid place-items-center p-4 sm:p-6 md:p-10 overflow-hidden">
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-[#3B3E81]/80 backdrop-blur-sm transition-opacity" 
+        className="fixed inset-0 bg-[#282038]/80 backdrop-blur-sm transition-opacity" 
         onClick={onClose}
       />
       
@@ -46,7 +46,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 md:top-6 md:right-6 z-[10100] w-10 h-10 bg-white shadow-xl rounded-full flex items-center justify-center text-[#3B3E81] hover:text-[#E84D94] transition-all transform hover:rotate-90 active:scale-90"
+          className="absolute top-4 right-4 md:top-6 md:right-6 z-[10100] w-10 h-10 bg-white shadow-xl rounded-full flex items-center justify-center text-[#282038] hover:text-[#E84D94] transition-all transform hover:rotate-90 active:scale-90"
           aria-label="Close modal"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,11 +117,11 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
           <div className="flex-1 overflow-y-auto p-6 md:p-12">
             <div className="mb-6">
               <span className="text-[#E84D94] font-bold text-[10px] uppercase tracking-[0.2em] block mb-2">Product Detail</span>
-              <h2 className="text-2xl md:text-3xl font-serif text-[#3B3E81] mb-2 leading-tight">{product.name}</h2>
+              <h2 className="text-2xl md:text-3xl font-serif text-[#282038] mb-2 leading-tight">{product.name}</h2>
               <div className="flex items-baseline gap-3 mt-2">
                 <p className="text-2xl md:text-3xl font-bold text-[#E84D94]">{product.price}</p>
                 {product.originalPrice && (
-                  <p className="text-lg md:text-xl text-[#3B3E81]/30 line-through font-medium">
+                  <p className="text-lg md:text-xl text-[#282038]/30 line-through font-medium">
                     {product.originalPrice}
                   </p>
                 )}
@@ -131,8 +131,8 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
             
             
             <div className="mb-8">
-              <h4 className="font-bold text-[#3B3E81]/40 mb-3 uppercase tracking-widest text-[10px]">Description</h4>
-              <p className="text-[#3B3E81]/80 leading-relaxed text-sm md:text-base">
+              <h4 className="font-bold text-[#282038]/40 mb-3 uppercase tracking-widest text-[10px]">Description</h4>
+              <p className="text-[#282038]/80 leading-relaxed text-sm md:text-base">
                 {product.description}
               </p>
             </div>
@@ -144,7 +144,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
                </div>
                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                   <p className="text-[9px] uppercase font-bold text-slate-400 mb-1 tracking-wider">Estimated Delivery</p>
-                  <p className="font-bold text-[#3B3E81] text-sm">2-4 Business Days</p>
+                  <p className="font-bold text-[#282038] text-sm">2-4 Business Days</p>
                </div>
             </div>
 
@@ -168,7 +168,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
                 <Icons.WhatsApp /> Order via WhatsApp
               </a>
               
-              <p className="text-center mt-5 text-[#3B3E81]/30 text-[9px] font-bold uppercase tracking-[0.3em]">
+              <p className="text-center mt-5 text-[#282038]/30 text-[9px] font-bold uppercase tracking-[0.3em]">
                 Includes Professional Guidance
               </p>
             </div>

@@ -18,10 +18,10 @@ const Hero: React.FC<HeroProps> = ({ onStartQuiz }) => {
           <div className="inline-block px-4 py-1.5 bg-[#E84D94]/10 text-[#E84D94] rounded-full text-xs font-bold uppercase tracking-wider">
             Postpartum Friendly • PCOS Approved
           </div>
-          <h1 className="text-5xl lg:text-7xl font-serif leading-tight text-[#3B3E81]">
+          <h1 className="text-5xl lg:text-7xl font-serif leading-tight text-[#282038]">
             Lose Weight, <span className="text-[#E84D94] italic">Gain Confidence</span>
           </h1>
-          <p className="text-lg lg:text-xl text-[#3B3E81]/80 leading-relaxed max-w-xl">
+          <p className="text-lg lg:text-xl text-[#282038]/80 leading-relaxed max-w-xl">
             6-week FitMamu Program: Daily 15-min Workouts, 60 Healthy Recipes, and Simple Habits for busy moms.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({ onStartQuiz }) => {
                   <img key={i} src={`https://picsum.photos/seed/mom${i}/40/40`} className="w-8 h-8 rounded-full border-2 border-white" alt="user" />
                 ))}
               </div>
-              <span className="text-sm font-medium text-[#3B3E81]/70">1,200+ Moms Joined</span>
+              <span className="text-sm font-medium text-[#282038]/70">1,200+ Moms Joined</span>
             </div>
           </div>
         </div>
@@ -50,8 +50,8 @@ const Hero: React.FC<HeroProps> = ({ onStartQuiz }) => {
               className="w-full h-full object-cover"
                           />
             <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur p-4 rounded-2xl shadow-lg border border-[#E84D94]/10">
-               <p className="text-[#3B3E81] font-bold text-center italic">"Finally, a workout that fits my life!"</p>
-               <p className="text-sm text-[#3B3E81]/60 text-center">- Silkey, Mom of 2</p>
+               <p className="text-[#282038] font-bold text-center italic">"Finally, a workout that fits my life!"</p>
+               <p className="text-sm text-[#282038]/60 text-center">- Silkey, Mom of 2</p>
             </div>
           </div>
           {/* Shapes */}

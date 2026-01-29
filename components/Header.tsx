@@ -121,7 +121,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                     className={`w-full text-left p-6 rounded-[16px] transition-all duration-300 ${
                       isActive 
                         ? 'bg-[#E84D94]/10 text-[#E84D94] font-bold' 
-                        : 'bg-slate-50 text-[#3B3E81] font-medium'
+                        : 'bg-slate-50 text-[#282038] font-medium'
                     }`}
                   >
                     <span className="text-xl font-serif">{item.label}</span>
@@ -133,7 +133,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           {/* Bottom Branding Section */}
           <div className="mt-20 text-center">
              <p className="text-[#E84D94] text-[10px] font-bold uppercase tracking-[0.4em] opacity-40">Safe • Effective • Postpartum</p>
-             <p className="mt-4 text-[#3B3E81]/40 text-[9px] font-medium tracking-widest uppercase">© FitMamu</p>
+             <p className="mt-4 text-[#282038]/40 text-[9px] font-medium tracking-widest uppercase">© FitMamu</p>
           </div>
         </div>
       </div>
