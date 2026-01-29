@@ -45,10 +45,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <img 
             src="https://manozks.github.io/fitmamu/assets/logo.png" 
             alt="Fitness Sarthi Logo" 
-            className="h-10 w-auto object-contain group-hover:rotate-3 transition-transform duration-300"
+            className="h-[10] w-auto object-contain group-hover:rotate-3 transition-transform duration-300"
             onError={(e) => (e.currentTarget.style.display = 'none')}
           />
-          
+        
         </button>
         
         {/* Desktop Navigation */}

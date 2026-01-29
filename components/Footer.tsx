@@ -42,13 +42,19 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               className="flex items-center gap-2 cursor-pointer group"
               onClick={() => setCurrentPage(Page.Home)}
             >
-              <div className="w-10 h-10 bg-[#E84D94] rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#E84D94]/20 group-hover:rotate-6 transition-transform">
-                 <span className="font-serif text-xl font-bold">F</span>
+              <div className="relative">
+                <div className="absolute inset-0 " />
+                <img 
+            src="https://manozks.github.io/fitmamu/assets/logo.png" 
+            alt="Fitness Sarthi Logo" 
+            className="h-[10] w-auto object-contain"
+            onError={(e) => (e.currentTarget.style.display = 'none')}
+          />
               </div>
-              <span className="font-serif text-2xl font-bold text-[#3B3E81]">FitMamu</span>
+              
             </div>
             
-            <p className="text-[#3B3E81]/80 max-w-sm leading-relaxed text-sm md:text-base">
+            <p className="text-[#3B3E81] max-w-sm leading-relaxed text-sm md:text-base">
               Empowering mothers to transform their health and regain confidence through sustainable movement, nutrition, and supportive community.
             </p>
 
