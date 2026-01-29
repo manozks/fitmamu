@@ -1,11 +1,13 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ScrollReveal from '../components/ScrollReveal.tsx';
 import { WHATSAPP_NUMBER, WHATSAPP_PREFILLED_TEXT, Icons } from '../constants.tsx';
 
 const SalesPage: React.FC = () => {
   const whatsappLink = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_PREFILLED_TEXT)}`;
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   const features = [
     { title: "Daily 15-min Workouts", desc: "Designed for postpartum core safety & metabolic health.", icon: <Icons.Workouts />, img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400" },
@@ -13,6 +15,43 @@ const SalesPage: React.FC = () => {
     { title: "Habit Coaching", desc: "Micro-habits for sleep, hydration, and stress management.", icon: <Icons.Habits />, img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400" },
     { title: "WhatsApp Community", desc: "Supportive circle of moms on the same journey.", icon: <Icons.Community />, img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=400" }
   ];
+
+  const testimonials = [
+    {
+      quote: "Really good and humbly environment i got in this fitness sarthi. They help me to tranform, make me energetic and bring positive vibes inside. Not only physical change but they make me mentally sound and relax. Change i fell after joining fitness sarathi really appreciated. I became able to lose 7 kg within a month. thank you fitness sarathi",
+      author: "smreeta shakya",
+      role: "Mom of 1",
+      tag: "Weight Loss Success"
+    },
+    {
+      quote: "I sincerely want to thank you for helping me on my weight loss journey and supporting me in solving my health problems. Your guidance, encouragement, and care have made such a positive difference in my life. I feel healthier, stronger, and more confident because of you. I truly appreciate all the time, effort, and dedication you put into helping me achieve these changes.”Thank you",
+      author: "eliza sitoula",
+      role: "Mom of 2",
+      tag: "Wellness"
+    },
+    {
+      quote: "Sarthi has been truly amazing at guiding me through the best and healthiest ways to lose weight. I am realy thankfull to sarthi for helping me to feel so much better and get healthy. Strongly recommend",
+      author: "Ajmi Shrestha",
+      role: "New Mom",
+      tag: "Safe Recovery"
+    },
+    {
+      quote: "Fitness Sharathi is very good. They give us a diet schedule by combining the foods we eat daily. By following that schedule, I have lost 4 kg in a week. If we can continue this, it will be very good for us. They also provide services online, now you can reduce your weight and live a healthy life while staying at home.",
+      author: "Samu Ghimire",
+        role: "Mom of 1",
+      tag: "Weight Loss Success"
+    }
+  ];
+
+  useEffect(() => {
+    if (!isAutoPlaying || isHovered) return;
+
+    const timer = setInterval(() => {
+      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [testimonials.length, isAutoPlaying, isHovered]);
 
   const faqs = [
     { q: "Is this safe for C-section recovery?", a: "Yes, our movements are carefully curated for safe core rehabilitation. However, we always recommend consulting your doctor after your 6-week check-up to ensure you are personally ready for low-impact movement." },
@@ -36,7 +75,7 @@ const SalesPage: React.FC = () => {
               Limited Spots Available for Next Batch
             </div>
           </ScrollReveal>
-          <ScrollReveal className="relative" delay={200}>
+           <ScrollReveal className="relative" delay={200}>
              <img 
                src="https://manozks.github.io/fitmamu/assets/home/fitmum.jpg" 
                alt="Happy Fit Mom Exercising" 
@@ -47,7 +86,7 @@ const SalesPage: React.FC = () => {
                   <div className="w-12 h-12 bg-[#E84D94]/10 rounded-full flex items-center justify-center text-[#E84D94] font-bold text-xl">4.9</div>
                   <div>
                     <p className="font-bold text-[#3B3E81]">User Rating</p>
-                    <p className="text-sm text-[#3B3E81]/60">From 500+ FitMamus</p>
+                    <p className="text-sm text-[#3B3E81]/60">From 100+ FitMamus</p>
                   </div>
                 </div>
              </div>
@@ -76,16 +115,57 @@ const SalesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Quote */}
-      <ScrollReveal className="bg-[#3B3E81] py-24 text-white relative overflow-hidden">
+      {/* Testimonials Carousel Section */}
+      <ScrollReveal className="bg-[#3B3E81] py-24 text-white relative overflow-hidden min-h-[550px] flex items-center">
         <div className="absolute inset-0 opacity-10">
           <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover" alt="Happy Fit Mom" />
         </div>
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <p className="text-[#E84D94] font-bold tracking-widest uppercase mb-4 text-sm">Postpartum-Friendly</p>
-          <h2 className="text-3xl lg:text-5xl font-serif mb-8 leading-tight">"I finally found a way to prioritize myself without feeling guilty or overwhelmed."</h2>
-          <div className="w-16 h-1 bg-[#E84D94] mx-auto mb-8" />
-          <p className="text-white/80 text-lg italic">— Priya, FitMamu Member</p>
+        
+        <div 
+          className="max-w-5xl mx-auto px-4 text-center relative z-10 w-full group/carousel cursor-pointer"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onClick={() => setIsAutoPlaying(false)}
+        >
+          <div className="relative h-[300px] flex flex-col justify-center">
+            {testimonials.map((t, i) => (
+              <div 
+                key={i}
+                className={`transition-all duration-1000 absolute inset-0 flex flex-col items-center justify-center
+                  ${i === activeTestimonial ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-95 translate-x-8 pointer-events-none'}`}
+              >
+                <p className="text-[#E84D94] font-bold tracking-[0.3em] uppercase mb-6 text-xs">{t.tag}</p>
+                <h2 className="text-xl md:text-2xl font-serif mb-8 leading-snug italic max-w-4xl px-4">
+                  "{t.quote}"
+                </h2>
+                <div className="w-16 h-1 bg-[#E84D94] mx-auto mb-6" />
+                <p className="text-white font-bold text-lg">— {t.author}</p>
+                <p className="text-white/40 text-sm uppercase tracking-widest mt-1">{t.role}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Indicators */}
+          <div className="flex justify-center gap-3 mt-12 relative z-20">
+            {testimonials.map((_, i) => (
+              <button 
+                key={i}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveTestimonial(i);
+                  setIsAutoPlaying(false);
+                }}
+                className={`h-1.5 transition-all duration-500 rounded-full ${i === activeTestimonial ? 'w-10 bg-[#E84D94]' : 'w-3 bg-white/20 hover:bg-white/40'}`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
+          
+          {!isAutoPlaying && (
+            <div className="mt-6 text-[10px] text-white/30 uppercase tracking-widest animate-pulse">
+              Scroll stopped • Click an indicator to navigate
+            </div>
+          )}
         </div>
       </ScrollReveal>
 
