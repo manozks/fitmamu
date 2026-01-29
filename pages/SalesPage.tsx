@@ -38,7 +38,7 @@ const SalesPage: React.FC = () => {
           </ScrollReveal>
           <ScrollReveal className="relative" delay={200}>
              <img 
-               src="https://images.unsplash.com/photo-1483721310020-03333e577078?auto=format&fit=crop&q=80&w=800" 
+               src="https://manozks.github.io/fitmamu/assets/home/fitmum.jpg" 
                alt="Happy Fit Mom Exercising" 
                className="rounded-[40px] shadow-2xl w-full h-[450px] object-cover"
              />
