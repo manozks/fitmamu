@@ -40,7 +40,7 @@ const SalesPage: React.FC = () => {
              <img 
                src="https://manozks.github.io/fitmamu/assets/home/fitmum.jpg" 
                alt="Happy Fit Mom Exercising" 
-               className="rounded-[40px] shadow-2xl w-full h-[500px] object-cover"
+               className="rounded-[40px] shadow-2xl w-full h-full object-cover"
              />
              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-[#E84D94]/10">
                 <div className="flex items-center gap-4">
