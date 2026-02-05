@@ -47,7 +47,7 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ currentPage, setCurre
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[60] bg-white/95 backdrop-blur-xl border-t border-[#E84D94]/10 px-2 pb-6 pt-3 shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-[60] bg-white/95 backdrop-blur-xl border-t border-[#16A34A]/10 px-2 pb-6 pt-3 shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
       <div className="flex justify-around items-center max-w-lg mx-auto">
         {tabs.map((tab) => {
           const isActive = currentPage === tab.id;
@@ -56,16 +56,16 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ currentPage, setCurre
               key={tab.id}
               onClick={() => setCurrentPage(tab.id)}
               className={`flex flex-col items-center gap-1 transition-all duration-300 flex-1 ${
-                isActive ? 'text-[#E84D94]' : 'text-slate-400'
+                isActive ? 'text-[#16A34A]' : 'text-slate-400'
               }`}
             >
-              <div className={`p-2 rounded-2xl transition-all duration-300 ${isActive ? 'bg-[#E84D94]/10 scale-110' : 'hover:bg-slate-50'}`}>
+              <div className={`p-2 rounded-2xl transition-all duration-300 ${isActive ? 'bg-[#16A34A]/10 scale-110' : 'hover:bg-slate-50'}`}>
                 {tab.icon}
               </div>
               <span className={`text-[8px] font-bold uppercase tracking-tight text-center transition-opacity ${isActive ? 'opacity-100' : 'opacity-50'}`}>
                 {tab.label}
               </span>
-              <div className={`w-1 h-1 bg-[#E84D94] rounded-full mt-0.5 transition-all duration-300 ${isActive ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} />
+              <div className={`w-1 h-1 bg-[#16A34A] rounded-full mt-0.5 transition-all duration-300 ${isActive ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`} />
             </button>
           );
         })}

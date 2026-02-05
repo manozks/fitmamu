@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Page } from '../types.ts';
 import { WHATSAPP_NUMBER, WHATSAPP_PREFILLED_TEXT, Icons } from '../constants.tsx';
@@ -35,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
   };
 
   return (
-    <header className="bg-white sticky top-0 z-[100] border-b border-[#E84D94]/10 shadow-sm transition-all duration-300">
+    <header className="bg-white sticky top-0 z-[100] border-b border-[#16A34A]/10 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <button 
@@ -45,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <img 
             src="https://manozks.github.io/fitmamu/assets/logo.png" 
             alt="Fitness Sarthi Logo" 
-            className="h-[10] w-auto object-contain group-hover:rotate-3 transition-transform duration-300"
+            className="h-10 w-auto object-contain group-hover:rotate-3 transition-transform duration-300"
             onError={(e) => (e.currentTarget.style.display = 'none')}
           />
         
@@ -57,13 +56,13 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             <button 
               key={item.page}
               onClick={() => setCurrentPage(item.page)} 
-              className={`hover:text-[#E84D94] transition-colors py-2 px-1 relative ${
-                currentPage === item.page ? 'text-[#E84D94]' : ''
+              className={`hover:text-[#16A34A] transition-colors py-2 px-1 relative ${
+                currentPage === item.page ? 'text-[#16A34A]' : ''
               }`}
             >
               {item.label}
               {currentPage === item.page && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E84D94] rounded-full" />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#16A34A] rounded-full" />
               )}
             </button>
           ))}
@@ -71,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#E84D94] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#D13B82] transition-all shadow-md hover:shadow-lg"
+            className="bg-[#16A34A] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#22C55E] transition-all shadow-md hover:shadow-lg"
           >
             Join Challenge
           </a>
@@ -79,14 +78,14 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
 
         {/* Mobile Menu Toggle Button */}
         <button 
-          className="md:hidden p-2 text-[#E84D94] z-[120] relative w-12 h-12 flex items-center justify-center rounded-xl transition-transform active:scale-90"
+          className="md:hidden p-2 text-[#16A34A] z-[120] relative w-12 h-12 flex items-center justify-center rounded-xl transition-transform active:scale-90"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
           <div className="flex flex-col gap-1.5 w-6 items-end">
-            <span className={`h-0.5 bg-[#E84D94] rounded-full transition-all duration-300 ${isMenuOpen ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`} />
-            <span className={`h-0.5 bg-[#E84D94] rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'w-4'}`} />
-            <span className={`h-0.5 bg-[#E84D94] rounded-full transition-all duration-300 ${isMenuOpen ? 'w-6 -rotate-45 -translate-y-2' : 'w-5'}`} />
+            <span className={`h-0.5 bg-[#16A34A] rounded-full transition-all duration-300 ${isMenuOpen ? 'w-6 rotate-45 translate-y-2' : 'w-6'}`} />
+            <span className={`h-0.5 bg-[#16A34A] rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'w-4'}`} />
+            <span className={`h-0.5 bg-[#16A34A] rounded-full transition-all duration-300 ${isMenuOpen ? 'w-6 -rotate-45 -translate-y-2' : 'w-5'}`} />
           </div>
         </button>
       </div>
@@ -104,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center bg-[#E84D94] text-white w-full py-5 rounded-[20px] text-lg font-bold shadow-xl shadow-[#E84D94]/10"
+                className="flex items-center justify-center bg-[#16A34A] text-white w-full py-5 rounded-[20px] text-lg font-bold shadow-xl shadow-[#16A34A]/10"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Join 6-Week Challenge
@@ -120,8 +119,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                     onClick={() => handleNavigation(item.page)}
                     className={`w-full text-left p-6 rounded-[16px] transition-all duration-300 ${
                       isActive 
-                        ? 'bg-[#E84D94]/10 text-[#E84D94] font-bold' 
-                        : 'bg-slate-50 text-[#282038] font-medium'
+                        ? 'bg-[#DCFCE7] text-[#16A34A] font-bold' 
+                        : 'bg-slate-50 text-[#14532D] font-medium'
                     }`}
                   >
                     <span className="text-xl font-serif">{item.label}</span>
@@ -132,8 +131,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
 
           {/* Bottom Branding Section */}
           <div className="mt-20 text-center">
-             <p className="text-[#E84D94] text-[10px] font-bold uppercase tracking-[0.4em] opacity-40">Safe • Effective • Postpartum</p>
-             <p className="mt-4 text-[#282038]/40 text-[9px] font-medium tracking-widest uppercase">© FitMamu</p>
+             <p className="text-[#16A34A] text-[10px] font-bold uppercase tracking-[0.4em] opacity-40">Safe • Effective • Postpartum</p>
+             <p className="mt-4 text-[#14532D]/40 text-[9px] font-medium tracking-widest uppercase">© Fitness Sarthi</p>
           </div>
         </div>
       </div>

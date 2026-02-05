@@ -45,7 +45,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ videoUrl, onClose }) => 
     <div className="fixed inset-0 z-[11000] flex items-center justify-center p-4 md:p-10">
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-[#282038]/90 backdrop-blur-md transition-opacity cursor-pointer" 
+        className="fixed inset-0 bg-[#14532D]/90 backdrop-blur-md transition-opacity cursor-pointer" 
         onClick={onClose}
       />
       

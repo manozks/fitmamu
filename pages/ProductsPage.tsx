@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import ScrollReveal from '../components/ScrollReveal.tsx';
@@ -29,10 +28,10 @@ const ProductsPage: React.FC = () => {
       <section className="pt-20 pb-8 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <ScrollReveal>
-            <h1 className="text-4xl lg:text-6xl font-serif text-[#282038] mb-6">
-              Essentials for Your <span className="text-[#E84D94]">Postpartum Journey</span>
+            <h1 className="text-4xl lg:text-6xl font-serif text-[#14532D] mb-6">
+              Essentials for Your <span className="text-[#16A34A]">Wellness Journey</span>
             </h1>
-            <p className="text-xl text-[#282038]/70 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-[#374151]/70 max-w-2xl mx-auto leading-relaxed">
               Curated fitness gear, wellness tools, and nutritional support designed to help you recover, strengthen, and thrive.
             </p>
           </ScrollReveal>
@@ -40,7 +39,7 @@ const ProductsPage: React.FC = () => {
       </section>
 
       {/* Category Tabs - Refined for Horizontal Scroll */}
-      <section className="sticky top-[64px] z-50 bg-[#fdfafb]/90 backdrop-blur-md py-4 mb-8 border-b border-[#E84D94]/5">
+      <section className="sticky top-[64px] z-50 bg-[#fdfafb]/90 backdrop-blur-md py-4 mb-8 border-b border-[#16A34A]/5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-3 overflow-x-auto pb-4 pt-2 flex-nowrap  -mx-4 px-4 md:mx-0 md:px-0 justify-start md:justify-center">
             {categories.map((cat) => (
@@ -49,8 +48,8 @@ const ProductsPage: React.FC = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 transform active:scale-95 flex-shrink-0 ${
                   activeCategory === cat
-                    ? 'bg-[#E84D94] text-white shadow-lg shadow-[#E84D94]/30 scale-105'
-                    : 'bg-white text-[#282038]/60 border border-[#e2e2e2] hover:border-[#E84D94]/30 hover:text-[#E84D94]'
+                    ? 'bg-[#16A34A] text-white shadow-lg shadow-[#16A34A]/30 scale-105'
+                    : 'bg-white text-[#374151]/60 border border-[#e2e2e2] hover:border-[#16A34A]/30 hover:text-[#16A34A]'
                 }`}
               >
                 {cat}
@@ -81,19 +80,19 @@ const ProductsPage: React.FC = () => {
         
         {filteredProducts.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-xl text-[#282038]/40 font-serif">No products found in this category.</p>
+            <p className="text-xl text-[#374151]/40 font-serif">No products found in this category.</p>
           </div>
         )}
       </section>
 
       {/* Trust Banner */}
       <section className="max-w-5xl mx-auto px-4 mt-16">
-        <ScrollReveal className="bg-[#282038] rounded-[50px] p-12 text-center text-white relative overflow-hidden shadow-2xl">
-          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#E84D94] rounded-full blur-[100px] opacity-20" />
+        <ScrollReveal className="bg-[#14532D] rounded-[50px] p-12 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-[#16A34A] rounded-full blur-[100px] opacity-20" />
           <div className="relative z-10">
             <h2 className="text-3xl font-serif mb-6">Quality You Can Trust</h2>
             <p className="text-white/70 max-w-xl mx-auto leading-relaxed mb-10">
-              All our products are tested and approved by fitness experts specializing in postpartum health. Safe, durable, and effective gear for every FitMamu.
+              All our products are tested and approved by fitness experts. Safe, durable, and effective gear for every Fitness Sarthi member.
             </p>
             <div className="flex flex-wrap justify-center gap-8 opacity-60">
               <span className="text-xs uppercase tracking-[0.3em] font-bold">Safe Materials</span>

@@ -18,23 +18,23 @@ export const Icons = {
     </svg>
   ),
   Heaviness: () => (
-    <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-10 h-10 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3 6l3 12h12l3-12H3zM9 6v12M15 6v12M12 6V3m0 0a2 2 0 100-4 2 2 0 000 4z" />
     </svg>
   ),
   Hormone: () => (
-    <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-10 h-10 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <circle cx="12" cy="12" r="3" strokeWidth="1" />
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M12 2v3m0 14v3M2 12h3m14 0h3m-2.434-6.566l-2.122 2.122m-8.888 8.888l-2.122 2.122m0-13.132l2.122 2.122m8.888 8.888l2.122 2.122" />
     </svg>
   ),
   Bloating: () => (
-    <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-10 h-10 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
     </svg>
   ),
   Fatigue: () => (
-    <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-10 h-10 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
     </svg>
   ),
@@ -44,22 +44,22 @@ export const Icons = {
     </svg>
   ),
   Workouts: () => (
-    <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-10 h-10 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M13 10V3L4 14h7v7l9-11h-7z" />
     </svg>
   ),
   Nutrition: () => (
-    <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-10 h-10 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
     </svg>
   ),
   Habits: () => (
-    <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-10 h-10 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
     </svg>
   ),
   Community: () => (
-    <svg className="w-10 h-10 text-[#E84D94]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-10 h-10 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
     </svg>
   ),

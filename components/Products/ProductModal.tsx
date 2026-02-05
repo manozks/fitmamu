@@ -21,7 +21,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
   }, []);
 
   const getBuyLink = (productName: string) => {
-    const msg = `Hi FitMamu, I'm interested in ordering the ${productName}. Can you tell me more about it?`;
+    const msg = `Hi Fitness Sarthi, I'm interested in ordering the ${productName}. Can you tell me more about it?`;
     return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}`;
   };
 
@@ -35,7 +35,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
     <div className="fixed inset-0 z-[9999] grid place-items-center p-4 sm:p-6 md:p-10 overflow-hidden">
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-[#282038]/80 backdrop-blur-sm transition-opacity" 
+        className="fixed inset-0 bg-[#14532D]/80 backdrop-blur-sm transition-opacity" 
         onClick={onClose}
       />
       
@@ -46,7 +46,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 md:top-6 md:right-6 z-[10100] w-10 h-10 bg-white shadow-xl rounded-full flex items-center justify-center text-[#282038] hover:text-[#E84D94] transition-all transform hover:rotate-90 active:scale-90"
+          className="absolute top-4 right-4 md:top-6 md:right-6 z-[10100] w-10 h-10 bg-white shadow-xl rounded-full flex items-center justify-center text-[#14532D] hover:text-[#16A34A] transition-all transform hover:rotate-90 active:scale-90"
           aria-label="Close modal"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
                 onClick={() => onOpenVideo(product.videoUrl!)}
                 className="absolute inset-0 bg-black/10 opacity-0 group-hover/main:opacity-100 transition-opacity flex items-center justify-center group/play"
               >
-                <div className="w-20 h-20 bg-[#E84D94] rounded-full flex items-center justify-center text-white shadow-2xl scale-90 group-hover/play:scale-100 transition-transform">
+                <div className="w-20 h-20 bg-[#16A34A] rounded-full flex items-center justify-center text-white shadow-2xl scale-90 group-hover/play:scale-100 transition-transform">
                    <Icons.Play />
                 </div>
               </button>
@@ -86,7 +86,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
                       onClick={() => setActiveImageIndex(idx)}
                       className={`relative w-14 h-14 md:w-20 md:h-20 flex-shrink-0 rounded-xl md:rounded-2xl overflow-hidden border-2 transition-all transform ${
                         activeImageIndex === idx 
-                        ? 'border-[#E84D94] scale-105 shadow-lg shadow-[#E84D94]/20 z-10' 
+                        ? 'border-[#16A34A] scale-105 shadow-lg shadow-[#16A34A]/20 z-10' 
                         : 'border-transparent opacity-60 hover:opacity-100'
                       }`}
                    >
@@ -105,7 +105,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
                </p>
                <div className="flex gap-1">
                  {product.images.map((_, i) => (
-                   <div key={i} className={`h-1 rounded-full transition-all ${i === activeImageIndex ? 'w-4 bg-[#E84D94]' : 'w-1 bg-slate-200'}`} />
+                   <div key={i} className={`h-1 rounded-full transition-all ${i === activeImageIndex ? 'w-4 bg-[#16A34A]' : 'w-1 bg-slate-200'}`} />
                  ))}
                </div>
              </div>
@@ -116,12 +116,12 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
         <div className="w-full md:w-1/2 bg-white flex flex-col min-h-0">
           <div className="flex-1 overflow-y-auto p-6 md:p-12">
             <div className="mb-6">
-              <span className="text-[#E84D94] font-bold text-[10px] uppercase tracking-[0.2em] block mb-2">Product Detail</span>
-              <h2 className="text-2xl md:text-3xl font-serif text-[#282038] mb-2 leading-tight">{product.name}</h2>
+              <span className="text-[#16A34A] font-bold text-[10px] uppercase tracking-[0.2em] block mb-2">Product Detail</span>
+              <h2 className="text-2xl md:text-3xl font-serif text-[#14532D] mb-2 leading-tight">{product.name}</h2>
               <div className="flex items-baseline gap-3 mt-2">
-                <p className="text-2xl md:text-3xl font-bold text-[#E84D94]">{product.price}</p>
+                <p className="text-2xl md:text-3xl font-bold text-[#16A34A]">{product.price}</p>
                 {product.originalPrice && (
-                  <p className="text-lg md:text-xl text-[#282038]/30 line-through font-medium">
+                  <p className="text-lg md:text-xl text-[#374151]/30 line-through font-medium">
                     {product.originalPrice}
                   </p>
                 )}
@@ -131,8 +131,8 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
             
             
             <div className="mb-8">
-              <h4 className="font-bold text-[#282038]/40 mb-3 uppercase tracking-widest text-[10px]">Description</h4>
-              <p className="text-[#282038]/80 leading-relaxed text-sm md:text-base">
+              <h4 className="font-bold text-[#374151]/40 mb-3 uppercase tracking-widest text-[10px]">Description</h4>
+              <p className="text-[#374151]/80 leading-relaxed text-sm md:text-base">
                 {product.description}
               </p>
             </div>
@@ -144,7 +144,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
                </div>
                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
                   <p className="text-[9px] uppercase font-bold text-slate-400 mb-1 tracking-wider">Estimated Delivery</p>
-                  <p className="font-bold text-[#282038] text-sm">2-4 Business Days</p>
+                  <p className="font-bold text-[#14532D] text-sm">2-4 Business Days</p>
                </div>
             </div>
 
@@ -153,7 +153,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
               {product.videoUrl && (
                 <button 
                   onClick={() => onOpenVideo(product.videoUrl!)}
-                  className="flex items-center justify-center gap-3 bg-white text-[#E84D94] border-2 border-[#E84D94] w-full py-4 rounded-full font-bold hover:bg-[#E84D94]/5 transition-all shadow-sm"
+                  className="flex items-center justify-center gap-3 bg-white text-[#16A34A] border-2 border-[#16A34A] w-full py-4 rounded-full font-bold hover:bg-[#DCFCE7] transition-all shadow-sm"
                 >
                   <Icons.Play /> Watch Product Video
                 </button>
@@ -163,12 +163,12 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onOpenVid
                 href={getBuyLink(product.name)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 bg-[#E84D94] text-white w-full py-4 md:py-5 rounded-full font-bold shadow-xl shadow-[#E84D94]/20 hover:bg-[#D13B82] transition-all transform active:scale-[0.98]"
+                className="flex items-center justify-center gap-3 bg-[#16A34A] text-white w-full py-4 md:py-5 rounded-full font-bold shadow-xl shadow-[#16A34A]/20 hover:bg-[#22C55E] transition-all transform active:scale-[0.98]"
               >
                 <Icons.WhatsApp /> Order via WhatsApp
               </a>
               
-              <p className="text-center mt-5 text-[#282038]/30 text-[9px] font-bold uppercase tracking-[0.3em]">
+              <p className="text-center mt-5 text-[#374151]/30 text-[9px] font-bold uppercase tracking-[0.3em]">
                 Includes Professional Guidance
               </p>
             </div>

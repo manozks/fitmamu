@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Page } from '../types.ts';
 import { Icons, WHATSAPP_NUMBER } from '../constants.tsx';
@@ -47,14 +46,14 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                 <img 
             src="https://manozks.github.io/fitmamu/assets/logo.png" 
             alt="Fitness Sarthi Logo" 
-            className="h-[10] w-auto object-contain"
+            className="h-10 w-auto object-contain"
             onError={(e) => (e.currentTarget.style.display = 'none')}
           />
               </div>
               
             </div>
             
-            <p className="text-[#282038] max-w-sm leading-relaxed text-sm md:text-base">
+            <p className="text-[#14532D] max-w-sm leading-relaxed text-sm md:text-base">
               Empowering mothers to transform their health and regain confidence through sustainable movement, nutrition, and supportive community.
             </p>
 
@@ -65,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
                   href={social.link} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#282038]/60 hover:text-[#E84D94] transition-colors duration-300 transform hover:-translate-y-1"
+                  className="text-[#14532D]/60 hover:text-[#16A34A] transition-colors duration-300 transform hover:-translate-y-1"
                 >
                   {social.icon}
                 </a>
@@ -75,13 +74,13 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
           {/* Links Columns */}
           <div className="lg:col-span-1 space-y-6">
-            <h4 className="font-bold text-[#282038] text-sm uppercase tracking-widest">Program</h4>
+            <h4 className="font-bold text-[#14532D] text-sm uppercase tracking-widest">Program</h4>
             <ul className="space-y-4">
               {footerLinks.program.map((link, i) => (
                 <li key={i}>
                   <button 
                     onClick={() => setCurrentPage(link.page)}
-                    className="text-[#282038]/80 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
+                    className="text-[#14532D]/80 hover:text-[#16A34A] transition-colors text-sm font-medium text-left"
                   >
                     {link.label}
                   </button>
@@ -91,13 +90,13 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
           </div>
 
           <div className="lg:col-span-1 space-y-6">
-            <h4 className="font-bold text-[#282038] text-sm uppercase tracking-widest">Resources</h4>
+            <h4 className="font-bold text-[#14532D] text-sm uppercase tracking-widest">Resources</h4>
             <ul className="space-y-4">
               {footerLinks.resources.map((link, i) => (
                 <li key={i}>
                   <button 
                     onClick={() => setCurrentPage(link.page)}
-                    className="text-[#282038]/80 hover:text-[#E84D94] transition-colors text-sm font-medium text-left"
+                    className="text-[#14532D]/80 hover:text-[#16A34A] transition-colors text-sm font-medium text-left"
                   >
                     {link.label}
                   </button>
@@ -108,30 +107,30 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
           {/* Location Column */}
           <div className="lg:col-span-1 space-y-6">
-            <h4 className="font-bold text-[#282038] text-sm uppercase tracking-widest">Location</h4>
+            <h4 className="font-bold text-[#14532D] text-sm uppercase tracking-widest">Location</h4>
             <ul className="space-y-5">
               <li className="flex items-start gap-3">
-                <span className="text-[#E84D94] mt-1 shrink-0"><Icons.Location /></span>
-                <span className="text-[#282038]/80 text-sm font-medium leading-snug">
+                <span className="text-[#16A34A] mt-1 shrink-0"><Icons.Location /></span>
+                <span className="text-[#14532D]/80 text-sm font-medium leading-snug">
                   Labimall, Pulchowk<br />Lalitpur, Nepal
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-[#E84D94] shrink-0"><Icons.Email /></span>
+                <span className="text-[#16A34A] shrink-0"><Icons.Email /></span>
                 <a 
-                  href="mailto:support@fitmamu.com" 
-                  className="text-[#282038]/80 hover:text-[#E84D94] transition-colors text-sm font-medium"
+                  href="mailto:support@fitnesssarthi.com" 
+                  className="text-[#14532D]/80 hover:text-[#16A34A] transition-colors text-sm font-medium"
                 >
-                  support@fitmamu.com
+                  support@fitnesssarthi.com
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <span className="text-[#E84D94] shrink-0"><Icons.WhatsApp /></span>
+                <span className="text-[#16A34A] shrink-0"><Icons.WhatsApp /></span>
                 <a 
                   href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#282038]/80 hover:text-[#E84D94] transition-colors text-sm font-medium"
+                  className="text-[#14532D]/80 hover:text-[#16A34A] transition-colors text-sm font-medium"
                 >
                   +977 {WHATSAPP_NUMBER}
                 </a>
@@ -142,8 +141,8 @@ const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
         {/* Bottom Bar */}
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row justify-center items-center">
-          <p className="text-[#282038]/70 text-xs font-medium">
-            © {currentYear} Fitness Sarthi.  All rights reserved.
+          <p className="text-[#14532D]/70 text-xs font-medium">
+            © {currentYear} Fitness Sarthi. All rights reserved.
 Consult your physician before starting any exercise program.
           </p>
           

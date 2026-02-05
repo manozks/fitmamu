@@ -32,11 +32,11 @@ const Layout: React.FC<LayoutProps> = ({ children, currentPage, setCurrentPage }
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="hidden md:flex whatsapp-float bg-[#E84D94] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform items-center justify-center group"
+        className="hidden md:flex whatsapp-float bg-[#16A34A] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform items-center justify-center group"
         aria-label="Chat on WhatsApp"
       >
         <Icons.WhatsApp />
-        <span className="absolute right-full mr-4 bg-white text-[#E84D94] px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-[#E84D94]/10">
+        <span className="absolute right-full mr-4 bg-white text-[#16A34A] px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-[#16A34A]/10">
           Chat with Us
         </span>
       </a>
