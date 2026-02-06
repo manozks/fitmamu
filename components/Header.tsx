@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
   const navItems = [
     { label: 'Home', page: Page.Home },
     { label: 'The Quiz', page: Page.Quiz },
-    { label: '6-Week Challenge', page: Page.Sales },
+    { label: 'Transformation', page: Page.Sales },
     { label: 'Products', page: Page.Products },
   ];
 
@@ -47,7 +47,6 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             className="h-10 w-auto object-contain group-hover:rotate-3 transition-transform duration-300"
             onError={(e) => (e.currentTarget.style.display = 'none')}
           />
-        
         </button>
         
         {/* Desktop Navigation */}
@@ -72,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             rel="noopener noreferrer"
             className="bg-[#16A34A] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#22C55E] transition-all shadow-md hover:shadow-lg"
           >
-            Join Challenge
+            Start Journey
           </a>
         </nav>
 
@@ -97,7 +96,6 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
         } md:hidden flex flex-col`}
       >
         <div className="flex-1 overflow-y-auto px-6 pt-24 pb-12">
-          {/* Top Join Challenge in Menu */}
           <div className="mb-12">
              <a 
                 href={whatsappLink}
@@ -106,7 +104,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                 className="flex items-center justify-center bg-[#16A34A] text-white w-full py-5 rounded-[20px] text-lg font-bold shadow-xl shadow-[#16A34A]/10"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Join 6-Week Challenge
+                Join Transformation
               </a>
           </div>
 
@@ -129,9 +127,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               })}
           </div>
 
-          {/* Bottom Branding Section */}
           <div className="mt-20 text-center">
-             <p className="text-[#16A34A] text-[10px] font-bold uppercase tracking-[0.4em] opacity-40">Safe • Effective • Postpartum</p>
+             <p className="text-[#16A34A] text-[10px] font-bold uppercase tracking-[0.4em] opacity-40">Safe • Effective • Holistic</p>
              <p className="mt-4 text-[#14532D]/40 text-[9px] font-medium tracking-widest uppercase">© Fitness Sarthi</p>
           </div>
         </div>

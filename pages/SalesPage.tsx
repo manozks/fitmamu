@@ -1,114 +1,194 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import ScrollReveal from '../components/ScrollReveal.tsx';
-import { WHATSAPP_NUMBER, WHATSAPP_PREFILLED_TEXT, Icons } from '../constants.tsx';
+import { WHATSAPP_NUMBER, Icons } from '../constants.tsx';
 
 const SalesPage: React.FC = () => {
-  const whatsappLink = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_PREFILLED_TEXT)}`;
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const features = [
-    { title: "Daily 15-min Workouts", desc: "Designed for postpartum core safety & metabolic health.", icon: <Icons.Workouts />, img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400" },
-    { title: "60 Custom Recipes", desc: "Anti-inflammatory, hormone-balancing nutritious meals.", icon: <Icons.Nutrition />, img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=400" },
-    { title: "Habit Coaching", desc: "Micro-habits for sleep, hydration, and stress management.", icon: <Icons.Habits />, img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=400" },
-    { title: "WhatsApp Community", desc: "Supportive circle of moms on the same journey.", icon: <Icons.Community />, img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=400" }
+  const getWhatsAppLink = (pkgName: string) => {
+    const text = `Hi Fitness Sarthi, I'm interested in the ${pkgName}. Can you share more details on how to start?`;
+    return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(text)}`;
+  };
+
+  const packages = [
+    {
+      name: "1-Month Starter",
+      tagline: "The Fat-Loss Kickstart",
+      price: "NPR 4,500",
+      originalPrice: "NPR 6,000",
+      description: "Ideal for beginners looking to break a plateau and build foundation habits.",
+      features: [
+        "Basic Personalized Diet Plan",
+        "Metabolism Boost Protocol",
+        "Foundation Habit Building",
+        "Weekly Progress Tracking",
+        "Standard Email Support"
+      ],
+      icon: <Icons.Flame />,
+      featured: false,
+      color: "bg-white"
+    },
+    {
+      name: "3-Month Transformation",
+      tagline: "Sustainable Results",
+      price: "NPR 11,500",
+      originalPrice: "NPR 18,000",
+      description: "Our most popular choice for long-term physiological change and gut health.",
+      features: [
+        "Advanced Customized Meal Plans",
+        "Lifestyle & Mindset Coaching",
+        "Gut Health Optimization",
+        "Hormone Balance Support",
+        "Direct WhatsApp Mentorship",
+        "Bi-weekly Consultation"
+      ],
+      icon: <Icons.Target />,
+      featured: true,
+      color: "bg-[#DCFCE7]"
+    },
+    {
+      name: "6-Month Complete Wellness",
+      tagline: "Total Life Transformation",
+      price: "NPR 19,900",
+      originalPrice: "NPR 36,000",
+      description: "Advanced support for PCOS, Thyroid, Postpartum, and clinical wellness.",
+      features: [
+        "Full Body Health Restoration",
+        "Advanced Detoxification",
+        "Cortisol & Stress Management",
+        "PCOS/Thyroid Specialized Diet",
+        "Postpartum Recovery Plan",
+        "Unlimited Expert Access",
+        "Lifetime Community Entry"
+      ],
+      icon: <Icons.Sparkles />,
+      featured: false,
+      color: "bg-white"
+    }
   ];
 
   const testimonials = [
     {
-      quote: "Really good and humbly environment i got in this fitness sarthi. They help me to tranform, make me energetic and bring positive vibes inside. Not only physical change but they make me mentally sound and relax. Change i fell after joining fitness sarathi really appreciated. I became able to lose 7 kg within a month. thank you fitness sarathi",
-      author: "smreeta shakya",
-      role: "Mom of 1",
-      tag: "Weight Loss Success"
+      quote: "The 3-month transformation completely changed my relationship with food. I lost 8kg sustainably! Silkey Sah's guidance is practical and very easy to follow even with a busy work schedule.",
+      author: "Smreeta Shakya",
+      role: "Sarthi Member",
+      tag: "Sustainable Loss"
     },
     {
-      quote: "I sincerely want to thank you for helping me on my weight loss journey and supporting me in solving my health problems. Your guidance, encouragement, and care have made such a positive difference in my life. I feel healthier, stronger, and more confident because of you. I truly appreciate all the time, effort, and dedication you put into helping me achieve these changes.”Thank you",
-      author: "eliza sitoula",
-      role: "Mom of 2",
-      tag: "Wellness"
+      quote: "As someone with PCOS, I never thought I'd lose weight. The 6-month wellness plan was a godsend. It's not just about the scale; it's about how much energy I have now. I feel 10 years younger.",
+      author: "Eliza Sitoula",
+      role: "Wellness Client",
+      tag: "Hormone Health"
     },
     {
-      quote: "Sarthi has been truly amazing at guiding me through the best and healthiest ways to lose weight. I am realy thankfull to sarthi for helping me to feel so much better and get healthy. Strongly recommend",
-      author: "Ajmi Shrestha",
-      role: "New Mom",
-      tag: "Safe Recovery"
-    },
-    {
-      quote: "Fitness Sharathi is very good. They give us a diet schedule by combining the foods we eat daily. By following that schedule, I have lost 4 kg in a week. If we can continue this, it will be very good for us. They also provide services online, now you can reduce your weight and live a healthy life while staying at home.",
+      quote: "The personalized diet plan featuring Nepali foods made it so easy to stick to. I didn't have to buy expensive 'superfoods' to see real results in my gut health and waistline.",
       author: "Samu Ghimire",
-        role: "Mom of 1",
-      tag: "Weight Loss Success"
+      role: "Transformation Graduate",
+      tag: "Gut Health"
     }
   ];
 
   useEffect(() => {
     if (!isAutoPlaying || isHovered) return;
-
     const timer = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
-
     return () => clearInterval(timer);
   }, [testimonials.length, isAutoPlaying, isHovered]);
 
-  const faqs = [
-    { q: "Is this safe for C-section recovery?", a: "Yes, our movements are carefully curated for safe core rehabilitation. However, we always recommend consulting your doctor after your 6-week check-up to ensure you are personally ready for low-impact movement." },
-    { q: "Do I need any gym equipment?", a: "None at all! All workouts are bodyweight-based and can be done comfortably in your living room, even with a baby nearby. We focus on efficiency with minimal space." },
-    { q: "What if I have PCOS/Thyroid issues?", a: "The nutrition plan specifically includes anti-inflammatory foods that help stabilize hormones and regulate metabolism. We focus on nourishing the body rather than restrictive dieting." },
-    { q: "How do I get my personalized plan?", a: "Once you complete the checkout via WhatsApp, you'll be paired with a welcome guide who will send over your specific roadmap based on your quiz answers!" }
-  ];
-
   return (
-    <div className="pb-32">
+    <div className="pb-32 bg-[#fdfafb]">
       {/* Hero Header */}
-      <section className="bg-gradient-to-b from-[#16A34A]/10 to-white pt-20 pb-16">
-        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-          <ScrollReveal className="text-left space-y-6">
-            <h1 className="text-4xl lg:text-6xl font-serif text-[#14532D] leading-tight">Your 6-Week <br /><span className="text-[#16A34A]">Fitness Sarthi</span> Program</h1>
-            <p className="text-xl text-[#374151]/80 leading-relaxed max-w-xl">
-              Everything you need to regain your strength, balance your hormones, and find your spark again—without hours in the gym.
-            </p>
-            <div className="inline-flex items-center gap-2 bg-[#DCFCE7] text-[#16A34A] px-6 py-2 rounded-full font-bold">
-              <span className="w-2 h-2 rounded-full bg-[#16A34A] animate-pulse" />
-              Limited Spots Available for Next Batch
+      <section className="bg-gradient-to-b from-[#DCFCE7] to-[#fdfafb] pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <ScrollReveal>
+            <div className="inline-block px-4 py-1.5 bg-[#16A34A]/10 text-[#16A34A] rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+              Expert-Led Weight Management
             </div>
-          </ScrollReveal>
-           <ScrollReveal className="relative" delay={200}>
-             <img 
-               src="https://manozks.github.io/fitmamu/assets/home/fitmum.jpg" 
-               alt="Happy Fit Mom Exercising" 
-               className="rounded-[40px] shadow-2xl w-full h-full object-cover"
-             />
-             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-[#16A34A]/10">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#DCFCE7] rounded-full flex items-center justify-center text-[#16A34A] font-bold text-xl">4.9</div>
-                  <div>
-                    <p className="font-bold text-[#14532D]">User Rating</p>
-                    <p className="text-sm text-[#374151]/60">From 100+ Sarthi members</p>
-                  </div>
-                </div>
-             </div>
+            <h1 className="text-4xl lg:text-7xl font-serif text-[#14532D] leading-tight mb-6">
+              Your Journey to a <br />
+              <span className="text-[#16A34A] italic text-5xl lg:text-8xl">Healthier You</span>
+            </h1>
+            <p className="text-xl text-[#374151] max-w-2xl mx-auto leading-relaxed mb-10">
+              Science-backed diet plans and holistic coaching tailored to your biology. Choose the path that fits your goals.
+            </p>
+            <div className="flex flex-wrap justify-center gap-8 opacity-60">
+              <div className="flex items-center gap-2">
+                <span className="text-[#16A34A]"><Icons.Check /></span>
+                <span className="text-xs font-bold uppercase tracking-wider">Metabolism Boost</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[#16A34A]"><Icons.Check /></span>
+                <span className="text-xs font-bold uppercase tracking-wider">Hormone Sync</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[#16A34A]"><Icons.Check /></span>
+                <span className="text-xs font-bold uppercase tracking-wider">Gut Healing</span>
+              </div>
+            </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* Program Cards */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        <ScrollReveal>
-          <h2 className="text-3xl font-serif text-center mb-12 text-[#14532D]">What's Inside the Program</h2>
+      {/* Package Selection */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <ScrollReveal className="text-center mb-16">
+          <h2 className="text-3xl lg:text-5xl font-serif text-[#14532D]">Personalized Service Packages</h2>
+          <div className="w-24 h-1 bg-[#16A34A] mx-auto mt-6 rounded-full" />
         </ScrollReveal>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((f, i) => (
-            <ScrollReveal key={i} delay={i * 100}>
-              <div className="bg-white overflow-hidden rounded-[32px] border border-[#16A34A]/10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group h-full">
-                <img src={f.img} className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-500" alt={f.title} />
-                <div className="p-8">
-                  <div className="mb-4">{f.icon}</div>
-                  <h3 className="font-bold text-lg mb-2 text-[#14532D]">{f.title}</h3>
-                  <p className="text-[#374151]/60 text-sm">{f.desc}</p>
+
+        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+          {packages.map((pkg, i) => (
+            <ScrollReveal key={i} delay={i * 100} className="h-full">
+              <div className={`relative h-full border-2 ${pkg.featured ? 'border-[#16A34A] shadow-2xl scale-105 z-10' : 'border-slate-100 shadow-sm'} ${pkg.color} rounded-[40px] p-8 lg:p-10 flex flex-col transition-all duration-500 hover:-translate-y-2`}>
+                {pkg.featured && (
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#16A34A] text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">
+                    Most Popular
+                  </div>
+                )}
+                
+                <div className="mb-8">
+                  <div className={`w-14 h-14 rounded-2xl ${pkg.featured ? 'bg-white' : 'bg-[#DCFCE7]'} flex items-center justify-center text-[#16A34A] mb-6 shadow-sm`}>
+                    {pkg.icon}
+                  </div>
+                  <h3 className="text-2xl font-serif text-[#14532D] mb-1">{pkg.name}</h3>
+                  <p className="text-[#16A34A] text-xs font-bold uppercase tracking-widest mb-4">{pkg.tagline}</p>
+                  <p className="text-[#374151]/70 text-sm leading-relaxed mb-6">{pkg.description}</p>
+                  
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-4xl font-bold text-[#14532D]">{pkg.price}</span>
+                    <span className="text-[#374151]/30 line-through text-lg">{pkg.originalPrice}</span>
+                  </div>
                 </div>
+
+                <div className="flex-grow space-y-4 mb-10">
+                  {pkg.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <div className="mt-1 text-[#16A34A] shrink-0">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-sm text-[#374151] font-medium leading-tight">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <a 
+                  href={getWhatsAppLink(pkg.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-5 rounded-2xl font-bold text-center transition-all shadow-lg active:scale-[0.98] ${
+                    pkg.featured 
+                    ? 'bg-[#16A34A] text-white hover:bg-[#14532D]' 
+                    : 'bg-white text-[#16A34A] border-2 border-[#16A34A] hover:bg-[#DCFCE7]'
+                  }`}
+                >
+                  Join Package
+                </a>
               </div>
             </ScrollReveal>
           ))}
@@ -118,11 +198,11 @@ const SalesPage: React.FC = () => {
       {/* Testimonials Carousel Section */}
       <ScrollReveal className="bg-[#14532D] py-24 text-white relative overflow-hidden min-h-[550px] flex items-center">
         <div className="absolute inset-0 opacity-10">
-          <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover" alt="Happy Fit Mom" />
+          <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=1600" className="w-full h-full object-cover" alt="Happy Healthy Life" />
         </div>
         
         <div 
-          className="max-w-5xl mx-auto px-4 text-center relative z-10 w-full group/carousel cursor-pointer"
+          className="max-w-5xl mx-auto px-6 text-center relative z-10 w-full group/carousel cursor-pointer"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={() => setIsAutoPlaying(false)}
@@ -135,7 +215,7 @@ const SalesPage: React.FC = () => {
                   ${i === activeTestimonial ? 'opacity-100 scale-100 translate-x-0' : 'opacity-0 scale-95 translate-x-8 pointer-events-none'}`}
               >
                 <p className="text-[#22C55E] font-bold tracking-[0.3em] uppercase mb-6 text-xs">{t.tag}</p>
-                <h2 className="text-xl md:text-2xl font-serif mb-8 leading-snug italic max-w-4xl px-4">
+                <h2 className="text-xl md:text-3xl font-serif mb-8 leading-snug italic max-w-4xl px-4">
                   "{t.quote}"
                 </h2>
                 <div className="w-16 h-1 bg-[#22C55E] mx-auto mb-6" />
@@ -145,7 +225,6 @@ const SalesPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Indicators */}
           <div className="flex justify-center gap-3 mt-12 relative z-20">
             {testimonials.map((_, i) => (
               <button 
@@ -163,54 +242,70 @@ const SalesPage: React.FC = () => {
         </div>
       </ScrollReveal>
 
-      {/* Pricing Section */}
-      <section className="max-w-xl mx-auto px-4 py-24">
-        <ScrollReveal className="bg-[#14532D] rounded-[40px] p-8 lg:p-12 text-white text-center relative overflow-hidden shadow-2xl border border-white/10">
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#16A34A] rounded-full blur-[80px] opacity-40" />
-          <h2 className="text-3xl font-serif mb-2">Total Transformation</h2>
-          <div className="flex items-center justify-center gap-2 my-8">
-            <span className="text-white/40 line-through text-2xl">$199</span>
-            <span className="text-5xl font-bold text-[#22C55E]">$79</span>
-            <span className="text-[#22C55E] text-sm bg-[#22C55E]/20 px-2 py-1 rounded border border-[#22C55E]/30">Save 60%</span>
+      {/* Transformation Process */}
+      <section className="bg-white py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <ScrollReveal className="lg:w-1/2">
+              <h2 className="text-3xl lg:text-5xl font-serif text-[#14532D] mb-8 leading-tight">Your Transformation <br /><span className="text-[#16A34A]">Timeline</span></h2>
+              <div className="space-y-12 relative before:absolute before:left-[19px] before:top-2 before:bottom-2 before:w-0.5 before:bg-[#DCFCE7]">
+                {[
+                  { title: "Phase 1: Analysis", desc: "In-depth body composition and hormone profile analysis." },
+                  { title: "Phase 2: Restoration", desc: "Resetting your metabolism and stabilizing insulin levels." },
+                  { title: "Phase 3: Transformation", desc: "Active weight loss through customized meal rotation." },
+                  { title: "Phase 4: Mastery", desc: "Transitioning into long-term weight maintenance habits." }
+                ].map((step, i) => (
+                  <div key={i} className="relative pl-12">
+                    <div className="absolute left-0 top-1 w-10 h-10 rounded-full bg-white border-4 border-[#16A34A] flex items-center justify-center z-10 shadow-sm">
+                      <span className="text-[#16A34A] font-bold text-xs">{i+1}</span>
+                    </div>
+                    <h4 className="font-bold text-[#14532D] text-lg mb-1">{step.title}</h4>
+                    <p className="text-[#374151]/70 text-sm">{step.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="lg:w-1/2 relative" delay={200}>
+              <div className="aspect-square rounded-[60px] overflow-hidden shadow-2xl border-[12px] border-[#DCFCE7]">
+                <img 
+                  src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1000" 
+                  alt="Healthy Food and Progress" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-8 -right-8 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 max-w-xs">
+                <p className="text-[#16A34A] font-black text-4xl mb-2">92%</p>
+                <p className="text-[#374151] font-bold text-sm uppercase tracking-wider">Success Rate in our 6-Month Wellness Program</p>
+              </div>
+            </ScrollReveal>
           </div>
-          <p className="text-white/60 mb-10 leading-relaxed">Join the 6-week challenge today and get instant access to the community, recipes, and workout dashboard.</p>
-          <a 
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full bg-[#16A34A] text-white py-5 rounded-full text-xl font-bold hover:bg-[#22C55E] transition-all shadow-xl shadow-black/20 text-center"
-          >
-            Pay & Start Today via WhatsApp
-          </a>
-          <div className="mt-8 flex justify-center gap-6 text-xs text-white/40 uppercase tracking-widest font-bold">
-            <span>Money-Back Guarantee</span>
-            <span>Secure Access</span>
-          </div>
-        </ScrollReveal>
+        </div>
       </section>
 
       {/* FAQs */}
-      <section className="max-w-3xl mx-auto px-4 py-12">
-        <ScrollReveal>
-          <h2 className="text-3xl font-serif text-center mb-12 text-[#14532D]">Common Questions</h2>
+      <section className="max-w-3xl mx-auto px-6 py-24">
+        <ScrollReveal className="text-center mb-16">
+          <h2 className="text-3xl font-serif text-[#14532D]">Common Questions</h2>
         </ScrollReveal>
         <div className="space-y-4">
-          {faqs.map((f, i) => (
+          {[
+            { q: "Which package is right for me?", a: "If you're just starting, the 1-Month Starter is great. However, for chronic conditions like PCOS or long-term weight goals, we highly recommend the 3-Month or 6-Month plans for physiological stability." },
+            { q: "Is the diet plan purely Nepali food?", a: "Yes! We focus on locally available ingredients and traditional cooking styles, modified for optimal nutrition and calorie control." },
+            { q: "How often do we interact?", a: "Depending on the plan, interactions range from weekly tracking to unlimited direct access to your coach on WhatsApp." }
+          ].map((f, i) => (
             <ScrollReveal key={i} delay={i * 100}>
-              <div className="bg-white rounded-2xl border border-[#16A34A]/10 shadow-sm overflow-hidden transition-all duration-300">
+              <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
                 <button 
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#16A34A]/5 transition-colors"
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#DCFCE7]/30 transition-colors"
                 >
-                  <span className="font-bold text-[#14532D] text-lg leading-tight">{f.q}</span>
+                  <span className="font-bold text-[#14532D] leading-tight">{f.q}</span>
                   <span className={`text-[#16A34A] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}>
                     <Icons.ChevronDown />
                   </span>
                 </button>
-                <div 
-                  className={`transition-all duration-300 ease-in-out ${openFaq === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-                >
-                  <div className="p-6 pt-0 text-[#374151]/70 leading-relaxed border-t border-[#16A34A]/5">
+                <div className={`transition-all duration-300 ease-in-out ${openFaq === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="p-6 pt-0 text-[#374151]/70 leading-relaxed border-t border-slate-50 text-sm">
                     {f.a}
                   </div>
                 </div>
@@ -220,20 +315,20 @@ const SalesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Sticky Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur border-t border-[#16A34A]/10 p-4 lg:p-6 z-40 animate-in slide-in-from-bottom-full">
+      {/* Sticky Call to Action */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-100 p-4 lg:p-6 z-40 animate-in slide-in-from-bottom-full">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           <div className="hidden sm:block">
-            <p className="font-bold text-[#14532D]">Fitness Sarthi 6-Week Challenge</p>
-            <p className="text-sm text-[#374151]/60">Next batch starts Monday • 8 slots left</p>
+            <p className="font-bold text-[#14532D]">Fitness Sarthi Personalized Wellness</p>
+            <p className="text-xs text-[#374151]/60">Enrollment open for all monthly packages</p>
           </div>
           <a 
-            href={whatsappLink}
+            href={`https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-grow sm:flex-grow-0 bg-[#16A34A] text-white px-8 py-3 lg:py-4 rounded-full text-sm lg:text-base font-bold flex items-center justify-center gap-2 hover:bg-[#22C55E] transition-all shadow-lg shadow-[#16A34A]/10"
+            className="flex-grow sm:flex-grow-0 bg-[#16A34A] text-white px-8 py-3 lg:py-4 rounded-full text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#14532D] transition-all shadow-lg"
           >
-            <Icons.WhatsApp /> Start Your Journey Now
+            <Icons.WhatsApp /> Start My Transformation
           </a>
         </div>
       </div>

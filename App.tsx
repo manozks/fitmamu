@@ -12,7 +12,7 @@ const App: React.FC = () => {
     try {
       const p = decodeURIComponent(path.substring(1));
       if (p === 'The Quiz') return Page.Quiz;
-      if (p === '6-Week Challenge') return Page.Sales;
+      if (p === 'Transformation') return Page.Sales;
       if (p === 'Products') return Page.Products;
       if (p === 'Home') return Page.Home;
       return Page.Home;
@@ -37,7 +37,7 @@ const App: React.FC = () => {
     setCurrentPage(page);
     let path = '/Home';
     if (page === Page.Quiz) path = '/The Quiz';
-    if (page === Page.Sales) path = '/6-Week Challenge';
+    if (page === Page.Sales) path = '/Transformation';
     if (page === Page.Products) path = '/Products';
     
     if (window.location.pathname !== path) {
